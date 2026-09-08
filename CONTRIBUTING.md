@@ -13,12 +13,13 @@ Building the complete app requires macOS, Xcode 26+, XcodeGen, and a self-contai
 The generated Xcode project and app bundle are ignored; edit `macOS/project.yml` to change project configuration.
 
 The conversion core can be tested independently with SwiftPM and a local FFmpeg installation.
-Homebrew FFmpeg is suitable for tests, although its external libraries make it unsuitable for the app's self-contained bundle.
+Homebrew's [ffmpeg-full](https://formulae.brew.sh/formula/ffmpeg-full) is suitable for tests, although its external libraries make it unsuitable for the app's self-contained bundle.
+The regular `ffmpeg` formula omits the Vorbis and WebP encoders used by Converty.
 
 ```sh
-brew install ffmpeg
-CONVERTY_FFMPEG="$(command -v ffmpeg)" \
-  CONVERTY_FFPROBE="$(command -v ffprobe)" \
+brew install ffmpeg-full
+CONVERTY_FFMPEG="$(brew --prefix ffmpeg-full)/bin/ffmpeg" \
+  CONVERTY_FFPROBE="$(brew --prefix ffmpeg-full)/bin/ffprobe" \
   swift test --package-path macOS
 ```
 

@@ -21,11 +21,11 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Install test media tools
-        run: brew install ffmpeg
+        run: brew install ffmpeg-full
       - name: Test conversion core
         run: |
-          export CONVERTY_FFMPEG="$(command -v ffmpeg)"
-          export CONVERTY_FFPROBE="$(command -v ffprobe)"
+          export CONVERTY_FFMPEG="$(brew --prefix ffmpeg-full)/bin/ffmpeg"
+          export CONVERTY_FFPROBE="$(brew --prefix ffmpeg-full)/bin/ffprobe"
           swift test --package-path macOS
 
   web:

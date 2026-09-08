@@ -10,6 +10,10 @@ The generated application is `../dist-native/Converty.app`.
 - A self-contained FFmpeg executable, selected with `CONVERTY_FFMPEG`. The default lookup for the build script is `~/.local/bin/ffmpeg`.
 - A compatible `ffprobe` on PATH, or `CONVERTY_FFPROBE`, for tests.
 
+The FFmpeg build must include the encoders used by Converty, including `libx264`, `libvpx-vp9`, `libopus`, `libmp3lame`, `libvorbis`, and `libwebp`.
+For core tests with Homebrew, use [ffmpeg-full](https://formulae.brew.sh/formula/ffmpeg-full) and the explicit executable paths in [CONTRIBUTING.md](../CONTRIBUTING.md).
+The regular `ffmpeg` formula omits Vorbis and WebP support.
+
 The build script checks that FFmpeg links only to system libraries and matches the app architectures to the engine. A typical Homebrew FFmpeg executable has Homebrew dylib dependencies and is rejected for app bundling. Build FFmpeg and its codec dependencies statically, or supply an audited self-contained build. The script does not download a binary automatically.
 
 ```sh
