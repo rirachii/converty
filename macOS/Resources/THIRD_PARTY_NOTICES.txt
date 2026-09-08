@@ -1,0 +1,26 @@
+Converty native macOS edition
+
+Converty source is GPL-3.0-or-later. See LICENSE.txt.
+
+FFmpeg
+This local build bundles an existing self-contained FFmpeg 8.0 executable.
+FFmpeg copyright (c) 2000-2025 the FFmpeg developers.
+The executable is GPL-enabled and includes third-party codec libraries.
+Its exact version, configuration, and source executable hash are in FFmpeg-build.txt.
+Upstream: https://ffmpeg.org/
+Source release: https://ffmpeg.org/releases/ffmpeg-8.0.tar.xz
+
+This is a local development build, not a prepared public binary release.
+Before redistributing binaries, provide corresponding source and build material
+for the exact FFmpeg build and all its linked libraries, retain their notices,
+and perform the signing and notarization release checks in macOS/README.md.
+The build script does not download an unverifiable binary automatically.
+
+libarchive
+Converty uses macOS's system libarchive. C declarations are vendored from
+libarchive v3.7.7, under the BSD terms retained verbatim in both header files:
+https://github.com/libarchive/libarchive/tree/v3.7.7/libarchive
+The public headers are not a bundled copy of the libarchive implementation.
+
+Apple frameworks and SF Symbols are system-provided. Converty does not include
+Tangerine code, branding, artwork, or demo footage.
