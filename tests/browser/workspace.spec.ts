@@ -89,6 +89,8 @@ test("split validates PDF page ranges, then creates the selected page", async ({
 }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "PDF", exact: true }).click();
+  // The sample is generated asynchronously; wait for its queue row before navigating.
+  await expect(page.getByText("a-few-good-ideas.pdf", { exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Explore all tools" }).click();
   await page.getByRole("button", { name: /^Split PDF pages/ }).click();
   await page.getByLabel("Pages", { exact: true }).fill("9");
