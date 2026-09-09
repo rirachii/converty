@@ -24,10 +24,10 @@ Do not add decorative motion to the workspace or wheel.
 The primary interaction is a floating radial selector invoked by Shift during a Finder file drag.
 Option switches that selector to contextual tools.
 Keep the wheel anchored, highlight the hovered segment, and accept a conversion only after a real drop.
-Advanced operations open compact floating editors, with a small progress/result panel and outputs beside the source.
+Advanced operations open compact floating editors, with a small progress panel and outputs beside the source. After a successful save, the panel closes automatically without a completion popup or Finder activation. Failures keep the panel open with error and recovery controls.
 Finder Open With, the macOS Services menu, native file panels, and the batch workspace remain parallel entry points. Use conventional native controls rather than a browser wrapper. The main window can be closed while the menu-bar utility continues running.
 
-Every operation saves a new file or folder. Show progress from the engine, actual errors, and a Finder reveal action. Preserve input order for combined outputs. Never silently replace originals or existing results. The source queue is a session workspace; saved results persist on disk.
+Every operation saves a new file or folder. Show progress from the engine and actual errors; keep Finder reveal actions in the batch workspace. Preserve input order for combined outputs. Never silently replace originals or existing results. The source queue is a session workspace; saved results persist on disk.
 Default to saving beside each original in both the workspace and wheel.
 Combined outputs use the first source's folder in list order.
 The native Save to menu offers Beside originals and a custom folder, with the current choice visible before processing.

@@ -56,7 +56,7 @@ See [native build instructions](macOS/README.md) for setup and release boundarie
 2. Drag onto a format segment and release to convert.
 3. Add **Option** while holding Shift to switch to editing tools.
 4. Drop onto **Crop** for a floating editor with a movable/resizable crop box, freeform proportions, percentage controls, and a video timeline.
-5. Apply the edit. Wheel results are saved **beside the original**, with a unique name, and the compact result panel can reveal them in Finder.
+5. Apply the edit. Wheel results are saved **beside the original**, with a unique name. The progress panel closes automatically when saving succeeds; errors remain visible with recovery options.
 
 For click and keyboard access, choose **Format Wheel…** from Converty's menu, or press **⇧⌘Space** in the app.
 Select files, then click a segment; **Space** switches formats/tools, arrow keys select, **Return** applies, and **Escape** closes the wheel.

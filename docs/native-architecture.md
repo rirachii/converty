@@ -28,6 +28,7 @@ Option switches formats/tools, while the wheel stays anchored and screen-clamped
 No operation runs on hover, centre drops, unsupported payloads, or cancelled drops.
 
 `FloatingFlowController` owns a compact editor/progress panel; `FloatingJob` calls the same core engine without changing the batch selection.
+Successful completion dismisses that job's panel immediately after its output files are saved. There is no success dialog or automatic Finder reveal. Failure and cancellation retain the status panel and its existing recovery controls.
 Single-file outputs default to each original's directory; group outputs use the first source's directory, with an explicit folder control before Apply.
 `CropEditor` loads oriented dimensions and preview frames, edits a normalized rectangle, and provides freeform/fixed aspect, move/resize, percentage controls, and timeline scrubbing.
 `NormalizedCrop` validates and maps this rectangle to actual pixels; video crop coordinates and dimensions are rounded to even pixels for codec compatibility.
