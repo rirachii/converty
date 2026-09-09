@@ -24,7 +24,7 @@ Third-party notices are generated before development and production builds.
 - `src/style.css` defines responsive layouts and reduced-motion behavior; `src/tokens.css` defines the color palette.
 - `src/main.js` installs the selected Lucide icons and adds keyboard-accessible tab behavior.
 - `public/converty.png` is the original native Converty icon, copied from the app artwork.
-- `public/workspace.png` is a screenshot of Converty's actual Tools view on macOS 26, with no user files displayed.
+- `public/workspace.png` is the supplied screenshot of Converty's actual Tools view on macOS 26, with no user files displayed. `.workspace-window` crops the desktop and outer window border in CSS, preserving the original screenshot pixels and showing the app without an added frame. Update the crop coordinates and image dimensions together if replacing the screenshot.
 - `public/converty-demo.mp4` is the approved Converty recording, optimized as H.264 with fast-start playback. `public/converty-demo-poster.jpg` is a frame from that recording.
 - `PRODUCT.md` and `DESIGN.md` describe the page's audience and visual contract.
 

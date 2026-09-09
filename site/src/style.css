@@ -595,18 +595,27 @@ kbd {
   height: 12px;
   vertical-align: -2px;
 }
-.workspace-backdrop {
-  background: #e5edfa;
-  border-radius: 16px;
-  padding: 58px 80px 0;
+.workspace-window {
+  /* Show the app at (76, 64), 2170 × 1362, within the original screenshot. */
+  position: relative;
+  aspect-ratio: 2170 / 1362;
+  border-radius: clamp(10px, 1.5vw, 20px);
+  background: #1e1e1e;
   overflow: hidden;
 }
-.workspace-backdrop img {
-  margin-inline: auto;
-  width: 100%;
+.workspace-window img {
+  position: absolute;
+  top: calc(-64 / 1362 * 100%);
+  left: calc(-76 / 2170 * 100%);
+  width: calc(2274 / 2170 * 100%);
+  max-width: none;
   height: auto;
-  box-shadow: 0 9px 45px #29487038;
-  border-radius: 24px 24px 0 0;
+  /* Keep the desktop in the screenshot's original rounded corners hidden. */
+  clip-path: inset(
+    calc(64 / 1474 * 100%) calc(28 / 2274 * 100%)
+    calc(48 / 1474 * 100%) calc(76 / 2274 * 100%)
+    round calc(68 / 2274 * 100%) / calc(68 / 1474 * 100%)
+  );
 }
 .workspace-figure figcaption {
   text-align: center;
@@ -830,9 +839,6 @@ details a {
     padding: 45px 35px;
     gap: 35px;
   }
-  .workspace-backdrop {
-    padding: 45px 55px 0;
-  }
   .faq {
     gap: 60px;
   }
@@ -961,9 +967,6 @@ details a {
   .large-file svg {
     width: 29px;
     height: 29px;
-  }
-  .workspace-backdrop {
-    padding: 34px 34px 0;
   }
   .principles {
     gap: 24px;
@@ -1161,13 +1164,6 @@ details a {
   .format-footnote a {
     display: inline-block;
     margin-left: 0;
-  }
-  .workspace-backdrop {
-    padding: 22px 14px 0;
-    border-radius: 12px;
-  }
-  .workspace-backdrop img {
-    border-radius: 9px 9px 0 0;
   }
   .workspace-figure figcaption {
     font-size: 9px;
