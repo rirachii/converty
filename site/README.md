@@ -40,6 +40,7 @@ The format explorer switches explanations only.
 ## Hosting
 
 Any static host can serve the contents of `dist/`.
+The public production URL is [converty-pi.vercel.app](https://converty-pi.vercel.app), with no visitor login required.
 The public site uses the Vercel project `converty` in `rirachiis-projects`, connected to `rirachii/converty` on GitHub.
 Set the Vercel Root Directory to `site` and Node.js version to `22.x`.
 `vercel.json` selects Vite, installs with `npm ci`, runs `npm run build`, and serves `dist/`.

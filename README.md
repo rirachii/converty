@@ -6,7 +6,7 @@ An open-source, native macOS file utility inspired by Tangerine's local file wor
 Built with SwiftUI and AppKit, with image, video, audio, PDF, text, and archive tools.
 Files stay on your Mac and every operation creates a separate copy.
 
-[Source](https://github.com/rirachii/converty) · [Report an issue](https://github.com/rirachii/converty/issues) · [Contribute](CONTRIBUTING.md)
+[Website](https://converty-pi.vercel.app) · [Source](https://github.com/rirachii/converty) · [Report an issue](https://github.com/rirachii/converty/issues) · [Contribute](CONTRIBUTING.md)
 
 ## Download for Mac
 
