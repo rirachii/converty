@@ -75,6 +75,9 @@ import ConvertyCore
         panel.contentView = NSHostingView(rootView: FloatingToolEditor(job: job).tint(.converty))
         self.panel = panel
         job.onStart = { [weak self] in self?.resize(to: CGSize(width: 360, height: 205)) }
+        job.onFinish = { [weak panel, weak job] in
+            if job?.finished == true { panel?.orderOut(nil) }
+        }
         job.onEdit = { [weak self, weak job] in guard let job else { return }; job.error = nil; self?.resize(to: CGSize(width: 420, height: job.options.tool == .crop ? 640 : 570)) }
         job.onClose = { [weak self] in self?.panel?.orderOut(nil) }
         let screen = NSScreen.screens.first(where: { $0.frame.intersects(anchor) }) ?? NSScreen.main!
@@ -95,8 +98,8 @@ struct FloatingToolEditor: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             HStack(spacing: 9) {
-                Image(systemName: job.finished ? "checkmark.circle.fill" : job.options.tool.symbol).foregroundStyle(Color.converty)
-                Text(job.finished ? "Your copy is ready" : job.title).font(.system(size: 14, weight: .semibold))
+                Image(systemName: job.options.tool.symbol).foregroundStyle(Color.converty)
+                Text(job.title).font(.system(size: 14, weight: .semibold))
                 Spacer()
             }.padding(.top, 15)
             if job.running || job.finished || job.error != nil { status }
@@ -120,7 +123,6 @@ struct FloatingToolEditor: View {
             Text(job.inputs.count == 1 ? job.inputs[0].lastPathComponent : "\(job.inputs.count) files").font(.system(size: 11)).foregroundStyle(.secondary).lineLimit(1)
             if job.running { ProgressView(value: job.progress); HStack { Text(job.progress, format: .percent.precision(.fractionLength(0))).monospacedDigit().foregroundStyle(.secondary); Spacer(); Button("Cancel") { job.cancel() } }.font(.system(size: 11)) }
             else if let error = job.error { Text(error).font(.system(size: 11)).foregroundStyle(.red).lineLimit(3); HStack { Button("Close") { job.onClose?() }; Spacer(); if job.options.tool != .convert { Button("Edit settings") { job.onEdit?() } } else { Button("Save elsewhere…") { job.chooseDestination() }; Button("Retry") { job.start() } } } }
-            else { HStack { Button("Done") { job.onClose?() }; Spacer(); Button("Show in Finder") { NSWorkspace.shared.activateFileViewerSelecting(job.results) }.primaryActionStyle() } }
         }
     }
 }
