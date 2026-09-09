@@ -1,0 +1,58 @@
+[
+  {
+    "name": "x264",
+    "version": "r3222",
+    "url": "https://code.videolan.org/videolan/x264/-/archive/b35605ace3ddf7c1a5d67a2eb553f034aef41d55/x264-b35605ace3ddf7c1a5d67a2eb553f034aef41d55.tar.gz",
+    "sha256": "cd71a7515b0e9a012e1ac9b1f8415bebcaf6fc97d4db32286642ac4c0fbe24f9",
+    "archive": "x264-r3222.tar.gz"
+  },
+  {
+    "name": "libvpx",
+    "version": "1.17.0",
+    "url": "https://github.com/webmproject/libvpx/archive/refs/tags/v1.17.0.tar.gz",
+    "sha256": "1020f184046187baa2985dbde38e0691f49c44088bca7a1842b0236c6081dc0a",
+    "archive": "libvpx-1.17.0.tar.gz"
+  },
+  {
+    "name": "opus",
+    "version": "1.6.1",
+    "url": "https://ftp.osuosl.org/pub/xiph/releases/opus/opus-1.6.1.tar.gz",
+    "sha256": "6ffcb593207be92584df15b32466ed64bbec99109f007c82205f0194572411a1",
+    "archive": "opus-1.6.1.tar.gz"
+  },
+  {
+    "name": "lame",
+    "version": "4.0",
+    "url": "https://downloads.sourceforge.net/project/lame/lame/4.0/lame-4.0.tar.gz",
+    "sha256": "3df5124d5ad3a98312ffd7ba6a9b36230e4f8a3e66d3ce0f425e336c32d216eb",
+    "archive": "lame-4.0.tar.gz"
+  },
+  {
+    "name": "libogg",
+    "version": "1.3.6",
+    "url": "https://ftp.osuosl.org/pub/xiph/releases/ogg/libogg-1.3.6.tar.gz",
+    "sha256": "83e6704730683d004d20e21b8f7f55dcb3383cdf84c0daedf30bde175f774638",
+    "archive": "libogg-1.3.6.tar.gz"
+  },
+  {
+    "name": "libvorbis",
+    "version": "1.3.7",
+    "url": "https://ftp.osuosl.org/pub/xiph/releases/vorbis/libvorbis-1.3.7.tar.xz",
+    "sha256": "b33cc4934322bcbf6efcbacf49e3ca01aadbea4114ec9589d1b1e9d20f72954b",
+    "archive": "libvorbis-1.3.7.tar.xz"
+  },
+  {
+    "name": "libwebp",
+    "version": "1.6.0",
+    "url": "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0.tar.gz",
+    "sha256": "e4ab7009bf0629fd11982d4c2aa83964cf244cffba7347ecd39019a9e38c4564",
+    "archive": "libwebp-1.6.0.tar.gz"
+  },
+  {
+    "name": "ffmpeg",
+    "version": "9.0.1",
+    "url": "https://ffmpeg.org/releases/ffmpeg-9.0.1.tar.xz",
+    "sha256": "cf38e0e28c7e5605942c4a77755349b0145804a397af37eb1fb4c77cb237f635",
+    "archive": "ffmpeg-9.0.1.tar.xz"
+  }
+]

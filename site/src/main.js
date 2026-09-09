@@ -54,6 +54,17 @@ createIcons({
 });
 
 const tabs = [...document.querySelectorAll('[role="tab"]')];
+function revealInstallationHelp() {
+  if (location.hash === "#install")
+    document.getElementById("install").open = true;
+}
+window.addEventListener("hashchange", revealInstallationHelp);
+document.querySelectorAll('a[href="#install"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    document.getElementById("install").open = true;
+  });
+});
+revealInstallationHelp();
 function selectTab(tab) {
   tabs.forEach((item) => {
     const selected = item === tab;

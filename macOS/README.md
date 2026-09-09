@@ -2,6 +2,8 @@
 
 SwiftUI macOS app, macOS 14 or later. Local verification used Apple Silicon and macOS 26.
 The generated application is `../dist-native/Converty.app`.
+The downloadable DMG is an early Apple Silicon release and is not notarized by Apple.
+See the [release runbook](../docs/macos-release.md) for packaging and corresponding source.
 
 ## Prerequisites
 
@@ -14,7 +16,7 @@ The FFmpeg build must include the encoders used by Converty, including `libx264`
 For core tests with Homebrew, use [ffmpeg-full](https://formulae.brew.sh/formula/ffmpeg-full) and the explicit executable paths in [CONTRIBUTING.md](../CONTRIBUTING.md).
 The regular `ffmpeg` formula omits Vorbis and WebP support.
 
-The build script checks that FFmpeg links only to system libraries and matches the app architectures to the engine. A typical Homebrew FFmpeg executable has Homebrew dylib dependencies and is rejected for app bundling. Build FFmpeg and its codec dependencies statically, or supply an audited self-contained build. The script does not download a binary automatically.
+The build script checks that FFmpeg links only to system libraries and matches the app architectures to the engine. A typical Homebrew FFmpeg executable has Homebrew dylib dependencies and is rejected for app bundling. The release recipe in `Scripts/build-engine.py` builds FFmpeg and its required codecs from pinned source. Set `CONVERTY_ENGINE_DIR` to its work directory to bundle the matching licenses and provenance. Custom local builds can still use `CONVERTY_FFMPEG`; the script does not download a binary automatically.
 
 ```sh
 CONVERTY_FFMPEG=/path/to/self-contained/ffmpeg ./macOS/Scripts/build.sh
@@ -38,8 +40,10 @@ Settings offers System, Light, and Dark appearance without changing the Mac's gl
 
 No web server, WebView, Node process, or WebAssembly engine is used by the Mac app. The app is not sandboxed, and reads only files selected by the user or required local resources. It makes no application network requests.
 
-## Before a public binary release
+## Distribution
 
-Prepare reproducible build material and corresponding source for the exact FFmpeg executable and all linked codec libraries, including their license notices. The existing engine's version/configuration and original hash are recorded in `Resources/FFmpeg-build.txt`, but those facts alone are not a complete redistribution package.
+`Scripts/package-dmg.py` packages the release app alongside the exact source ZIP, media-engine source archives, build recipe, licenses, provenance, and checksums.
+The generated engine records in `Resources/MediaEngine*` are included in the app bundle.
+Custom engine binaries still need corresponding source and build material before redistribution.
 
-Use Developer ID signing with the appropriate hardened-runtime configuration, notarize and staple the app or disk image, then test Gatekeeper installation on a clean Mac. Test the minimum supported OS and every offered CPU architecture. This checkout currently provides an ad-hoc signed local app, not a notarized release or an App Store submission.
+For a notarized release, use Developer ID signing with hardened runtime, notarize and staple the app or disk image, then test Gatekeeper installation on a clean Mac. Test the minimum supported OS and every offered CPU architecture. The current early DMG is ad-hoc signed, not a notarized release or an App Store submission.

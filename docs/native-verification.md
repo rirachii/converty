@@ -74,6 +74,7 @@ The final app was launched and shown in Finder.
 The native Release build and preserved web production build passed, and the generated source ZIP includes native sources while excluding built binaries.
 The local signature is checked with `codesign --verify --deep --strict`.
 Source is published at [rirachii/converty](https://github.com/rirachii/converty).
-There is no Developer ID/notarization, public binary release, or published website.
+There is no Developer ID signing or Apple notarization.
+The landing page is deployed, and the early Apple Silicon DMG uses the source and packaging process in [the release runbook](macos-release.md).
 The minimum macOS 14 target and other CPU architectures have not been tested on physical machines.
 The earlier web checks remain recorded separately in `docs/verification.md`.

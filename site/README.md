@@ -28,7 +28,9 @@ Third-party notices are generated before development and production builds.
 - `PRODUCT.md` and `DESIGN.md` describe the page's audience and visual contract.
 
 Keep capability claims aligned with the root README and native implementation.
-The primary CTA leads to build instructions until a signed, notarized public app actually exists.
+The primary CTA links directly to the versioned GitHub DMG asset.
+The early release is explicitly labeled as Apple Silicon and not notarized by Apple.
+Installation-help links expand the relevant FAQ disclosure; source-build instructions remain available separately.
 The format-wheel scene is an original workflow illustration, explicitly labeled as such; it does not accept or convert files.
 The format explorer switches explanations only.
 

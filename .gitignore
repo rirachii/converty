@@ -15,6 +15,10 @@ macOS/Resources/bin/
 macOS/Resources/AppIcon.icns
 macOS/Resources/FFmpeg-build.txt
 macOS/Resources/LICENSE.txt
+macOS/Resources/MediaEngineNotices.txt
+macOS/Resources/MediaEngineSources.json
+macOS/Resources/MediaEngineProvenance.json
+**/__pycache__/
 dist-native/
 .env
 .env.*

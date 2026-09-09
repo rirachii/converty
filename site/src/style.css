@@ -255,6 +255,11 @@ h1 span {
 .availability span {
   margin-inline: 5px;
 }
+.availability a,
+.release-note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .hero-art {
   height: 478px;
   position: relative;

@@ -2,7 +2,8 @@
 
 The landing page markets the native SwiftUI and AppKit Mac app, preserving the older React browser converter separately.
 Its canonical source is `site/` in this repository.
-The primary action leads to the native build guide because Converty is an early source release without a signed, notarized installer.
+The primary action downloads the versioned Mac DMG directly from GitHub Releases.
+This early release is ad-hoc signed and not notarized by Apple, with Apple Silicon requirements and installation help visible beside the download.
 
 ## Reference research
 
@@ -22,7 +23,7 @@ The file artwork is an original CSS illustration; the app icon and native worksp
 
 - Introduce the local Mac workflow before listing formats.
 - Keep original inputs and generated copies clearly distinguished.
-- Represent source-release availability honestly and link to the real GitHub build guide.
+- Represent DMG availability and signing status honestly, with a direct asset link and a separate GitHub build guide.
 - Use semantic HTML, keyboard-operable tabs, visible focus states, native FAQ disclosures, and reduced-motion alternatives.
 - Keep fonts and icons self-hosted, with license notices available from the footer.
 - Keep the page static, with no uploads, accounts, analytics, fabricated progress, or simulated conversion.

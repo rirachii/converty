@@ -3,18 +3,20 @@ Converty native macOS edition
 Converty source is GPL-3.0-or-later. See LICENSE.txt.
 
 FFmpeg
-This local build bundles an existing self-contained FFmpeg 8.0 executable.
-FFmpeg copyright (c) 2000-2025 the FFmpeg developers.
-The executable is GPL-enabled and includes third-party codec libraries.
-Its exact version, configuration, and source executable hash are in FFmpeg-build.txt.
+FFmpeg is copyright its developers and is built with GPL-enabled codecs.
+The executable's version, configuration, and build-input hash are in FFmpeg-build.txt.
+Release builds use macOS/Scripts/build-engine.py and macOS/Engine/sources.json.
+MediaEngineNotices.txt contains the complete upstream notices for FFmpeg and
+its statically linked libraries, including x264, libvpx, Opus, LAME, libogg,
+libvorbis, and libwebp. MediaEngineSources.json records the source archives
+and checksums; MediaEngineProvenance.json records the build and engine hash.
+Matching source archives and the build recipe accompany each GitHub release:
+https://github.com/rirachii/converty/releases
 Upstream: https://ffmpeg.org/
-Source release: https://ffmpeg.org/releases/ffmpeg-8.0.tar.xz
 
-This is a local development build, not a prepared public binary release.
-Before redistributing binaries, provide corresponding source and build material
-for the exact FFmpeg build and all its linked libraries, retain their notices,
-and perform the signing and notarization release checks in macOS/README.md.
-The build script does not download an unverifiable binary automatically.
+Development builds using a custom FFmpeg input may not have these release
+records. Do not redistribute a custom engine without its corresponding
+source, build instructions, and third-party notices.
 
 libarchive
 Converty uses macOS's system libarchive. C declarations are vendored from

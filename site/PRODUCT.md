@@ -8,12 +8,13 @@ web
 
 ## Users and purpose
 Introduce the native Converty Mac app to people who convert and edit everyday files.
-Explain its local workflow, supported file families, and open-source availability, then lead visitors to the public repository and build instructions.
+Explain its local workflow, supported file families, and open-source availability, then offer a direct Mac DMG download and the public source repository.
 This website markets the Mac app; the separate browser converter remains in the parent repository.
 
 ## Conversion and proof
-The primary action is Get Converty, leading to an honest source-release section and GitHub.
-There is no signed Mac download, customer testimonial, adoption metric, or price claim.
+The primary action is Get Converty, linking directly to the versioned GitHub DMG asset.
+The first download is for Apple Silicon, ad-hoc signed and not notarized by Apple; disclose that beside the CTA and in installation help.
+There is no customer testimonial, adoption metric, or price claim.
 Use implemented capabilities, the actual icon, an actual app screenshot, and a clearly identified workflow illustration as evidence.
 
 ## Personality and references
@@ -26,7 +27,7 @@ Create original copy, layout, imagery, and motion.
 Show what happens to a file before listing the tools.
 Keep the original and its new copy close together in both the story and visuals.
 Make open source a useful invitation with a real destination.
-Explain availability clearly without promising a downloadable release.
+Explain the downloadable release's requirements and signing status clearly.
 
 ## Accessibility and inclusion
 Support keyboard navigation, visible focus, touch controls, reduced motion, and WCAG AA contrast.

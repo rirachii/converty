@@ -16,6 +16,6 @@ Motion is limited to a single entrance for the hero objects and short state tran
 No repeated scroll reveals, fake progress, fabricated conversion results, autoplay video, or continuous floating.
 Under reduced motion, show all content in its final static position.
 
-The strongest CTA leads to the source-release section.
-Use real links to the GitHub repository, build guide, issue tracker, and license.
-Do not create a download button until a distributable signed app actually exists.
+The strongest CTA downloads the actual versioned DMG release asset directly.
+Use real links to the GitHub repository, installation help, build guide, issue tracker, and license.
+Keep the early release's Apple Silicon requirement and unnotarized status beside the download action.

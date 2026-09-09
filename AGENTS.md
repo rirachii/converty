@@ -6,7 +6,8 @@ Read `DESIGN.md`, `macOS/README.md`, and `docs/native-architecture.md` for nativ
 `docs/architecture.md` covers the web edition only.
 The native app's marketing site lives in `site/`; read `site/PRODUCT.md`, `site/DESIGN.md`, and `site/README.md` before changing it.
 Build it separately with `npm ci --prefix site` and `npm run build --prefix site`.
-Keep its source-release CTA truthful until a signed, notarized app is available.
+The website's Get Converty button links directly to the versioned DMG release asset.
+Keep Apple Silicon requirements and unnotarized early-release status visible until verified signing and notarization are completed.
 
 - Keep `macOS/project.yml` as the XcodeGen source of truth; generated projects and builds are ignored.
 - Use native AppKit/SwiftUI controls and system file integrations. Do not substitute a WebView wrapper.

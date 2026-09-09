@@ -57,5 +57,6 @@ Contributions are made under the project's [GPL-3.0-or-later license](LICENSE).
 Retain third-party notices and document the provenance of added assets or dependencies.
 Tangerine and Dex reference assets are not part of this repository.
 
-Public source is available now; a signed, notarized Mac download is not yet published.
-Before distributing a binary, follow the FFmpeg corresponding-source and signing requirements in [macOS/README.md](macOS/README.md).
+Public source and early Apple Silicon DMGs are available through [GitHub Releases](https://github.com/rirachii/converty/releases).
+The early download is ad-hoc signed and not notarized by Apple.
+Follow the pinned media-source, packaging, and signing requirements in [the Mac release runbook](docs/macos-release.md).

@@ -9,6 +9,7 @@ const included = [
   "src",
   "macOS/App",
   "macOS/Artwork",
+  "macOS/Engine",
   "macOS/Sources",
   "macOS/Tests",
   "macOS/Scripts",
@@ -60,7 +61,11 @@ async function add(path) {
     return;
   }
   for (const entry of entries)
-    if (!entry.name.startsWith(".")) await add(join(path, entry.name));
+    if (
+      !entry.name.startsWith(".") &&
+      !["__pycache__", "node_modules", "dist"].includes(entry.name)
+    )
+      await add(join(path, entry.name));
 }
 await mkdir("public", { recursive: true });
 for (const path of included) await add(path);

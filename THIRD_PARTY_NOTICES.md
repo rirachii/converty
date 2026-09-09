@@ -2,7 +2,7 @@
 
 Converty application source is GPL-3.0-or-later.
 Dependencies retain the licenses in their distributed packages.
-Native engine and libarchive notices are in [macOS/Resources/THIRD_PARTY_NOTICES.txt](macOS/Resources/THIRD_PARTY_NOTICES.txt). The supplied native FFmpeg executable is a local build input, not a committed binary.
+Native engine and libarchive notices are in [macOS/Resources/THIRD_PARTY_NOTICES.txt](macOS/Resources/THIRD_PARTY_NOTICES.txt). Native release engines are built from checksum-pinned source with `macOS/Scripts/build-engine.py`; the matching engine sources and build recipe accompany DMG releases. The executable and source tarballs are release assets, not committed binaries.
 
 The following dependencies belong to the preserved web edition. Exact versions are recorded in `package-lock.json`.
 
