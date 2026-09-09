@@ -9,7 +9,7 @@ Build it separately with `npm ci --prefix site` and `npm run build --prefix site
 Public hosting uses the Vercel `converty` project with Root Directory set to `site`.
 Run Vercel CLI commands from the repository root; `.vercelignore` limits uploads to the landing-page source.
 The website's Get Converty button links directly to the versioned DMG release asset.
-Keep Apple Silicon requirements and unnotarized early-release status visible until verified signing and notarization are completed.
+Keep Apple Silicon requirements and unnotarized early-release status in the closing download section and installation FAQ until verified signing and notarization are completed. The hero shows the install command without release-detail text.
 
 - Keep `macOS/project.yml` as the XcodeGen source of truth; generated projects and builds are ignored.
 - Use native AppKit/SwiftUI controls and system file integrations. Do not substitute a WebView wrapper.

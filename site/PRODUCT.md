@@ -14,9 +14,9 @@ This website markets the Mac app; the separate browser converter remains in the 
 ## Conversion and proof
 The primary action is Get Converty, linking directly to the versioned GitHub DMG asset.
 Homebrew is a secondary installation option, with the project's full cask command available to copy.
-The first download is for Apple Silicon, ad-hoc signed and not notarized by Apple; disclose that beside the CTA and in installation help.
+The first download is for Apple Silicon, ad-hoc signed and not notarized by Apple; disclose that in the closing download section and installation help.
 There is no customer testimonial, adoption metric, or price claim.
-Use implemented capabilities, the actual icon, an actual app screenshot, and a clearly identified workflow illustration as evidence.
+Use implemented capabilities, the actual icon, an actual app screenshot, and the approved Converty demo recording as evidence.
 
 ## Personality and references
 Tactile, familiar, precise.

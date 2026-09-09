@@ -3,7 +3,7 @@
 The landing page markets the native SwiftUI and AppKit Mac app, preserving the older React browser converter separately.
 Its canonical source is `site/` in this repository.
 The primary action downloads the versioned Mac DMG directly from GitHub Releases.
-This early release is ad-hoc signed and not notarized by Apple, with Apple Silicon requirements and installation help visible beside the download.
+This early release is ad-hoc signed and not notarized by Apple, with Apple Silicon requirements and installation help in the closing download section and FAQ. The hero shows a direct DMG action and a copyable Homebrew command without release-detail text.
 
 ## Reference research
 
@@ -12,12 +12,12 @@ Research was performed on September 8, 2026, using the requested [recent.design 
 | Reference | Useful principle | Converty adaptation |
 | --- | --- | --- |
 | [Tangerine for Mac](https://tangerineformac.com/) | A short file gesture is easier to understand when the product workflow is visible; file-family exploration keeps detailed capabilities approachable. | A split hero explains the original/new-copy outcome, followed by three steps and an accessible format explorer. |
-| [Paste on recent.design](https://recent.design/i/7s9nhu5-paste) and [Paste](https://pasteapp.io/) | Layered product imagery supplies depth; concise feature sections connect a utility to an everyday task. | Original file objects surround Converty's own icon, with short practical examples and a real workspace screenshot. |
+| [Paste on recent.design](https://recent.design/i/7s9nhu5-paste) and [Paste](https://pasteapp.io/) | Layered product imagery supplies depth; concise feature sections connect a utility to an everyday task. | Converty's own demo, short practical examples, original file illustrations, and a real workspace screenshot. |
 | [Amie on recent.design](https://recent.design/i/lrqqbee-amie) | The archived gallery design uses overlapping interface panels, generous space, and an approachable tone. | Quiet spacing and a tactile composition, using Converty blue instead of the reference's pastel palette. |
 
 The Amie reference is the design shown in the gallery, not a claim about the current live product.
 No competitor copy, artwork, code, video, screenshots, prices, testimonials, or conversion counts are included.
-The file artwork is an original CSS illustration; the app icon and native workspace screenshot come from Converty.
+The file artwork is original CSS illustration; the app icon, native workspace screenshot, and approved demo recording come from Converty. The demo replaces the original hero illustration, plays muted with native controls, and respects reduced-motion preferences. Its poster comes from the same recording.
 
 ## Product and interaction contract
 
@@ -25,6 +25,8 @@ The file artwork is an original CSS illustration; the app icon and native worksp
 - Keep original inputs and generated copies clearly distinguished.
 - Represent DMG availability and signing status honestly, with a direct asset link and a separate GitHub build guide.
 - Use semantic HTML, keyboard-operable tabs, visible focus states, native FAQ disclosures, and reduced-motion alternatives.
+- Keep the Homebrew command selectable and copyable in both the hero and closing section. Keep each copy button's feedback local to its command.
+- Show the full demo frame without cropping; reduced motion and no JavaScript leave playback under visitor control.
 - Keep fonts and icons self-hosted, with license notices available from the footer.
 - Keep the page static, with no uploads, accounts, analytics, fabricated progress, or simulated conversion.
 
