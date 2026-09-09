@@ -49,15 +49,13 @@
             Different format.<br /><span>Same familiar<br />place.</span>
           </h1>
           <p class="hero-description">
-            Convert, crop, and compress your files. All on your Mac. Right
-            beside the original.
+            Convert, crop, and compress your files. Right beside the original.
           </p>
           <div class="hero-actions">
             <a
               class="button primary"
               href="https://github.com/rirachii/converty/releases/download/v0.1.0/Converty-0.1.0-macOS-arm64.dmg"
               download="Converty-0.1.0-macOS-arm64.dmg"
-              aria-describedby="download-availability"
               >Get Converty
               <i data-lucide="arrow-down" aria-hidden="true"></i></a
             ><a class="text-link" href="#how-it-works"
@@ -65,58 +63,41 @@
               <i data-lucide="arrow-right" aria-hidden="true"></i
             ></a>
           </div>
-          <p class="availability" id="download-availability">
-            Apple Silicon · macOS 14+ · Free & open source<br />
-            Early release · Not notarized ·
-            <a href="#install">Installation help</a><br />
-            <a href="#homebrew">Install with Homebrew</a>
-          </p>
+          <div class="homebrew-install hero-install">
+            <div class="command-row">
+              <code>brew install --cask rirachii/tap/converty</code>
+              <button
+                type="button"
+                class="copy-command"
+                data-copy-command
+                hidden
+              >
+                Copy
+              </button>
+            </div>
+            <p class="copy-status" role="status" aria-live="polite"></p>
+          </div>
         </div>
-        <figure
-          class="hero-art"
-          aria-label="Workflow illustration: an original HEIC photo beside a new JPG copy, with Converty's format wheel between them."
-        >
-          <div class="scene-halo"></div>
-          <div class="file-object file-original">
-            <span class="file-fold"></span>
-            <div class="file-art">
-              <span class="photo-sun"></span
-              ><span class="photo-hill back"></span
-              ><span class="photo-hill front"></span>
-            </div>
-            <strong>Afternoon.heic</strong
-            ><span class="file-kind">THE ORIGINAL</span>
-          </div>
-          <div class="format-wheel">
-            <span class="wheel-format format-jpg">JPG</span
-            ><span class="wheel-format format-webp">WebP</span
-            ><span class="wheel-format format-png">PNG</span
-            ><span class="wheel-format format-pdf">PDF</span
-            ><span class="wheel-format format-tiff">TIFF</span
-            ><span class="wheel-format format-heic">HEIC</span>
-            <div class="wheel-center">
-              <img src="/converty.png" alt="" width="91" height="91" />
-            </div>
-          </div>
-          <div class="file-object file-copy">
-            <span class="file-fold"></span>
-            <div class="file-art">
-              <span class="photo-sun"></span
-              ><span class="photo-hill back"></span
-              ><span class="photo-hill front"></span>
-            </div>
-            <strong>Afternoon.jpg</strong
-            ><span class="file-kind"
-              ><i data-lucide="check" aria-hidden="true"></i> A FRESH COPY</span
-            >
-          </div>
-          <span class="gesture-label"
-            ><kbd>⇧</kbd> Hold Shift. Drop. Done.</span
+        <figure class="hero-demo" aria-label="Converty demo">
+          <video
+            data-demo-video
+            width="1906"
+            height="1072"
+            poster="/converty-demo-poster.jpg"
+            preload="metadata"
+            controls
+            muted
+            loop
+            playsinline
+            aria-label="Watch Converty convert a file using the format wheel in Finder"
+            aria-describedby="demo-description"
           >
-          <figcaption>
-            One small gesture. A new possibility.<span
-              >Workflow illustration</span
-            >
+            <source src="/converty-demo.mp4" type="video/mp4" />
+            <a href="/converty-demo.mp4">Watch the Converty demo</a>
+          </video>
+          <figcaption id="demo-description">
+            Hold Shift as you drag. Pick a format. Find the new copy beside the
+            original.
           </figcaption>
         </figure>
       </section>

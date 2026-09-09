@@ -25,16 +25,17 @@ Third-party notices are generated before development and production builds.
 - `src/main.js` installs the selected Lucide icons and adds keyboard-accessible tab behavior.
 - `public/converty.png` is the original native Converty icon, copied from the app artwork.
 - `public/workspace.png` is a screenshot of Converty's actual Tools view on macOS 26, with no user files displayed.
+- `public/converty-demo.mp4` is the approved Converty recording, optimized as H.264 with fast-start playback. `public/converty-demo-poster.jpg` is a frame from that recording.
 - `PRODUCT.md` and `DESIGN.md` describe the page's audience and visual contract.
 
 Keep capability claims aligned with the root README and native implementation.
 The primary CTA links directly to the versioned GitHub DMG asset.
-The early release is explicitly labeled as Apple Silicon and not notarized by Apple.
+The closing download section and installation FAQ disclose the Apple Silicon requirement and unnotarized early-release status; the hero keeps only its actions and install command.
 Installation-help links expand the relevant FAQ disclosure; source-build instructions remain available separately.
-The Homebrew link leads to a selectable install command with a copy button when the Clipboard API is available.
+The hero and closing section each show a selectable Homebrew command with an independent copy button and status when the Clipboard API is available.
 The command remains readable without JavaScript; clipboard failures show manual-copy guidance.
 Keep the command aligned with the canonical [Homebrew tap](https://github.com/rirachii/homebrew-tap).
-The format-wheel scene is an original workflow illustration, explicitly labeled as such; it does not accept or convert files.
+The hero plays the actual Converty demo, muted and looping, with native playback controls. Reduced-motion preferences disable automatic playback; without JavaScript, visitors can start it themselves. The adjacent workflow explains the silent recording.
 The format explorer switches explanations only.
 
 ## Hosting

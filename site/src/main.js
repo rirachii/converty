@@ -66,21 +66,32 @@ document.querySelectorAll('a[href="#install"]').forEach((link) => {
 });
 revealInstallationHelp();
 
-const copyCommand = document.querySelector("[data-copy-command]");
-if (navigator.clipboard?.writeText) {
-  copyCommand.hidden = false;
-  copyCommand.addEventListener("click", async () => {
-    const status = document.querySelector(".copy-status");
-    try {
-      await navigator.clipboard.writeText(
-        document.getElementById("brew-command").textContent.trim(),
-      );
-      status.textContent = "Install command copied. Paste it into Terminal.";
-    } catch {
-      status.textContent = "Select the command and copy it manually.";
-    }
-  });
+for (const copyCommand of document.querySelectorAll("[data-copy-command]")) {
+  if (navigator.clipboard?.writeText) {
+    copyCommand.hidden = false;
+    copyCommand.addEventListener("click", async () => {
+      const install = copyCommand.closest(".homebrew-install");
+      const status = install.querySelector(".copy-status");
+      try {
+        await navigator.clipboard.writeText(
+          install.querySelector("code").textContent.trim(),
+        );
+        status.textContent = "Install command copied. Paste it into Terminal.";
+      } catch {
+        status.textContent = "Select the command and copy it manually.";
+      }
+    });
+  }
 }
+
+const demo = document.querySelector("[data-demo-video]");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+function updateDemoPlayback() {
+  if (reducedMotion.matches) demo.pause();
+  else demo.play().catch(() => {}); // Native controls remain available if autoplay is blocked.
+}
+reducedMotion.addEventListener("change", updateDemoPlayback);
+updateDemoPlayback();
 
 function selectTab(tab) {
   tabs.forEach((item) => {

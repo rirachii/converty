@@ -153,14 +153,31 @@ p {
 }
 .hero {
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 30px;
+  grid-template-columns: 0.95fr 1.1fr;
+  gap: 48px;
   align-items: center;
   padding-top: 76px;
   padding-bottom: 98px;
 }
 .hero > * {
   min-width: 0;
+}
+.hero-demo video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1906 / 1072;
+  border-radius: 16px;
+  box-shadow: 0 18px 48px #17396020;
+  background: var(--surface);
+}
+.hero-demo figcaption {
+  max-width: 400px;
+  margin: 20px auto 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
 }
 .intro-note {
   display: flex;
@@ -247,225 +264,9 @@ h1 span {
 .text-link svg {
   width: 17px;
 }
-.availability {
-  font-size: 11px;
-  margin-top: 17px;
-  color: var(--muted);
-}
-.availability span {
-  margin-inline: 5px;
-}
-.availability a,
 .release-note a {
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-.hero-art {
-  height: 478px;
-  position: relative;
-  isolation: isolate;
-}
-.scene-halo {
-  position: absolute;
-  width: 450px;
-  height: 450px;
-  left: 50%;
-  top: -5px;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 53% 47%,
-    oklch(93.5% 0.039 249) 0%,
-    oklch(94.9% 0.026 249) 50%,
-    oklch(97.8% 0.005 255 / 0) 72%
-  );
-  z-index: -2;
-}
-.file-object {
-  position: absolute;
-  background: linear-gradient(140deg, #fff 20%, #f3f6fb);
-  width: 160px;
-  padding: 25px 12px 16px;
-  border-radius: 9px 32px 9px 9px;
-  box-shadow:
-    0 12px 24px #1a416519,
-    inset 0 0 0 1px #fff;
-}
-.file-fold {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 28px;
-  height: 28px;
-  background: linear-gradient(45deg, #e0e8f2, #fafcff 80%);
-  border-radius: 0 0 0 7px;
-  box-shadow: -2px 2px 2px #1c32610a;
-}
-.file-original {
-  left: 4px;
-  top: 56px;
-  transform: rotate(-12deg);
-  animation: original-enter 0.65s ease-out both;
-}
-.file-copy {
-  right: -2px;
-  top: 254px;
-  transform: rotate(10deg);
-  z-index: 3;
-  animation: copy-enter 0.65s 0.1s ease-out both;
-}
-.file-object strong {
-  display: block;
-  font-size: 11px;
-  margin-top: 11px;
-  font-weight: 700;
-  text-align: center;
-}
-.file-kind {
-  font-size: 7px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3px;
-  letter-spacing: 0.07em;
-  color: var(--muted);
-  margin-top: 3px;
-}
-.file-kind svg {
-  width: 10px;
-  height: 10px;
-  color: var(--blue);
-}
-.file-art {
-  position: relative;
-  height: 103px;
-  overflow: hidden;
-  background: #d5e8f4;
-  border-radius: 4px;
-}
-.photo-sun {
-  position: absolute;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: #fff4c8;
-  right: 25px;
-  top: 15px;
-}
-.photo-hill {
-  position: absolute;
-  width: 150px;
-  height: 100px;
-  border-radius: 50%;
-}
-.photo-hill.back {
-  background: #709d92;
-  top: 43px;
-  left: 26px;
-  transform: rotate(-22deg);
-}
-.photo-hill.front {
-  background: #466f67;
-  top: 69px;
-  left: -44px;
-  transform: rotate(15deg);
-}
-.format-wheel {
-  position: absolute;
-  width: 263px;
-  height: 263px;
-  top: 103px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-10deg);
-  border-radius: 50%;
-  background: conic-gradient(
-    from -30deg,
-    var(--blue) 0deg 59deg,
-    #d4dce94d 59deg 60deg,
-    #ffffffd9 60deg 119deg,
-    #d4dce94d 119deg 120deg,
-    #ffffffd9 120deg 179deg,
-    #d4dce94d 179deg 180deg,
-    #ffffffd9 180deg 239deg,
-    #d4dce94d 239deg 240deg,
-    #ffffffd9 240deg 299deg,
-    #d4dce94d 299deg 300deg,
-    #ffffffd9 300deg 359deg,
-    #d4dce94d 359deg 360deg
-  );
-  box-shadow:
-    0 17px 35px #20497b17,
-    inset 0 0 0 1px #ffffffb3;
-  z-index: 2;
-}
-.wheel-center {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 119px;
-  height: 119px;
-  transform: translate(-50%, -50%);
-  background: #eef3f9;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  box-shadow:
-    0 0 0 6px #fff7,
-    0 3px 7px #1c436721;
-}
-.wheel-center img {
-  width: 82px;
-  height: 82px;
-  border-radius: 24%;
-  transform: rotate(10deg);
-  box-shadow: 0 7px 10px #2b5ba526;
-}
-.wheel-format {
-  position: absolute;
-  font-size: 12px;
-  font-weight: 700;
-  transform: translate(-50%, -50%) rotate(10deg);
-}
-.format-jpg {
-  left: 50%;
-  top: 13%;
-  color: #fff;
-}
-.format-webp {
-  left: 83%;
-  top: 32%;
-}
-.format-png {
-  left: 83%;
-  top: 68%;
-}
-.format-pdf {
-  left: 50%;
-  top: 87%;
-}
-.format-tiff {
-  left: 17%;
-  top: 68%;
-}
-.format-heic {
-  left: 17%;
-  top: 32%;
-}
-.gesture-label {
-  position: absolute;
-  left: 26px;
-  bottom: 60px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #fff;
-  border-radius: 8px;
-  padding: 8px 12px 8px 8px;
-  color: var(--ink);
-  font-size: 11px;
-  font-weight: 600;
-  box-shadow: 0 3px 10px #1529470c;
-  transform: rotate(-4deg);
 }
 kbd {
   background: var(--canvas);
@@ -477,26 +278,6 @@ kbd {
   font-size: 0.9em;
   white-space: nowrap;
   color: var(--ink);
-}
-.gesture-label kbd {
-  font-size: 16px;
-  line-height: 22px;
-  width: 29px;
-  text-align: center;
-}
-.hero-art figcaption {
-  position: absolute;
-  bottom: -16px;
-  width: 100%;
-  text-align: center;
-  font-size: 11px;
-  color: var(--muted);
-}
-.hero-art figcaption span {
-  display: block;
-  font-size: 9px;
-  color: var(--faint);
-  margin-top: 3px;
 }
 .section {
   padding-block: 94px;
@@ -893,6 +674,9 @@ kbd {
   margin-top: 25px;
   min-width: 0;
 }
+.hero-install {
+  margin-top: 21px;
+}
 .homebrew-install .install-label {
   margin-bottom: 8px;
   font-size: 12px;
@@ -1013,26 +797,6 @@ details a {
   gap: 23px;
   font-size: 11px;
 }
-@keyframes original-enter {
-  from {
-    opacity: 0;
-    transform: translateY(12px) rotate(-16deg);
-  }
-  to {
-    opacity: 1;
-    transform: rotate(-12deg);
-  }
-}
-@keyframes copy-enter {
-  from {
-    opacity: 0;
-    transform: translateY(12px) rotate(14deg);
-  }
-  to {
-    opacity: 1;
-    transform: rotate(10deg);
-  }
-}
 @media (min-width: 1400px) {
   .hero {
     padding-block: 92px 116px;
@@ -1052,11 +816,6 @@ details a {
   }
   h1 {
     font-size: 54px;
-  }
-  .hero-art {
-    transform: scale(0.88);
-    transform-origin: center center;
-    margin-inline: -25px;
   }
   .hero-actions {
     gap: 17px;
@@ -1094,6 +853,12 @@ details a {
   .hero-copy {
     text-align: center;
   }
+  .hero-install .command-row {
+    margin-inline: auto;
+  }
+  .hero-demo {
+    margin-top: 20px;
+  }
   .intro-note,
   .hero-actions {
     justify-content: center;
@@ -1112,19 +877,6 @@ details a {
   }
   .hero-actions .text-link {
     font-size: 13px;
-  }
-  .hero-art {
-    transform: none;
-    width: 480px;
-    max-width: 100%;
-    margin-inline: auto;
-    height: 460px;
-  }
-  .hero-art figcaption {
-    bottom: -5px;
-  }
-  .file-copy {
-    right: 4px;
   }
   .section {
     padding-block: 65px;
@@ -1286,7 +1038,7 @@ details a {
   }
   .hero {
     padding-top: 38px;
-    gap: 5px;
+    gap: 24px;
   }
   .intro-note {
     font-size: 11px;
@@ -1311,91 +1063,6 @@ details a {
   .hero-actions .text-link {
     font-size: 11px;
     gap: 4px;
-  }
-  .availability {
-    font-size: 9px;
-  }
-  .availability span {
-    margin-inline: 3px;
-  }
-  .hero-art {
-    height: 409px;
-  }
-  .scene-halo {
-    width: min(350px, 100%);
-    height: 350px;
-    top: 30px;
-  }
-  .format-wheel {
-    width: 217px;
-    height: 217px;
-    top: 104px;
-  }
-  .wheel-center {
-    width: 96px;
-    height: 96px;
-  }
-  .wheel-center img {
-    width: 67px;
-    height: 67px;
-  }
-  .wheel-format {
-    font-size: 10px;
-  }
-  .file-object {
-    width: 123px;
-    padding: 21px 9px 12px;
-    border-radius: 8px 25px 8px 8px;
-  }
-  .file-fold {
-    width: 23px;
-    height: 23px;
-  }
-  .file-original {
-    top: 43px;
-    left: 4px;
-  }
-  .file-copy {
-    top: 243px;
-    right: 6px;
-  }
-  .file-art {
-    height: 72px;
-  }
-  .photo-sun {
-    width: 18px;
-    height: 18px;
-    right: 20px;
-    top: 9px;
-  }
-  .photo-hill.back {
-    top: 29px;
-    left: 20px;
-  }
-  .photo-hill.front {
-    top: 44px;
-  }
-  .file-object strong {
-    font-size: 9px;
-    margin-top: 8px;
-  }
-  .file-kind {
-    font-size: 6px;
-  }
-  .gesture-label {
-    left: 0;
-    bottom: 48px;
-    font-size: 9px;
-    gap: 6px;
-    padding: 5px 9px 5px 5px;
-  }
-  .gesture-label kbd {
-    font-size: 13px;
-    width: 24px;
-  }
-  .hero-art figcaption {
-    font-size: 10px;
-    bottom: -17px;
   }
   .section {
     padding-block: 54px;
