@@ -4,6 +4,9 @@ Converty is primarily a native SwiftUI macOS file utility in `macOS/`.
 The earlier web edition remains in `src/` as a working reference.
 Read `DESIGN.md`, `macOS/README.md`, and `docs/native-architecture.md` for native work.
 `docs/architecture.md` covers the web edition only.
+The native app's marketing site lives in `site/`; read `site/PRODUCT.md`, `site/DESIGN.md`, and `site/README.md` before changing it.
+Build it separately with `npm ci --prefix site` and `npm run build --prefix site`.
+Keep its source-release CTA truthful until a signed, notarized app is available.
 
 - Keep `macOS/project.yml` as the XcodeGen source of truth; generated projects and builds are ignored.
 - Use native AppKit/SwiftUI controls and system file integrations. Do not substitute a WebView wrapper.

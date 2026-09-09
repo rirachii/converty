@@ -86,8 +86,9 @@ Media tests also need `ffprobe` on PATH (or `CONVERTY_FFPROBE`).
 See [native architecture](docs/native-architecture.md), [verification](docs/native-verification.md), [design contract](DESIGN.md), and [reference research](docs/reference-research.md).
 
 The earlier React web app is preserved. See [web edition](docs/web-edition.md) for its separate features, limitations, and npm commands.
+The native app's standalone [landing page](site/README.md) lives in `site/`; run `npm ci --prefix site` and `npm run dev --prefix site` to preview it.
 Contributions and reproducible bug reports are welcome; start with [CONTRIBUTING.md](CONTRIBUTING.md).
-GitHub Actions runs the native core tests and the web type checks, unit tests, browser tests, and production build.
+GitHub Actions runs the native core tests, web type checks, unit tests, browser tests, and production builds for both the web edition and landing page.
 
 ## License
 

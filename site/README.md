@@ -1,0 +1,49 @@
+# Converty landing page
+
+The marketing site for the native Mac app lives here, alongside the original application source.
+The earlier browser converter remains in the parent project's `src/` directory.
+
+## Run and build
+
+Use Node.js 22.12 or later.
+
+```sh
+cd site
+npm ci
+npm run dev
+```
+
+The development server uses port 5174.
+Run `npm run build` to produce a standalone static site in `dist/`, or `npm run preview` to serve that build on port 4174.
+The page needs no backend, API keys, or external font service.
+Third-party notices are generated before development and production builds.
+
+## Editing
+
+- `index.html` contains the copy, navigation, accessible file-type panels, and native HTML FAQ disclosures.
+- `src/style.css` defines responsive layouts and reduced-motion behavior; `src/tokens.css` defines the color palette.
+- `src/main.js` installs the selected Lucide icons and adds keyboard-accessible tab behavior.
+- `public/converty.png` is the original native Converty icon, copied from the app artwork.
+- `public/workspace.png` is a screenshot of Converty's actual Tools view on macOS 26, with no user files displayed.
+- `PRODUCT.md` and `DESIGN.md` describe the page's audience and visual contract.
+
+Keep capability claims aligned with the root README and native implementation.
+The primary CTA leads to build instructions until a signed, notarized public app actually exists.
+The format-wheel scene is an original workflow illustration, explicitly labeled as such; it does not accept or convert files.
+The format explorer switches explanations only.
+
+## Hosting
+
+Any static host can serve the contents of `dist/`.
+The `.openai/hosting.json` manifest records the registered Sites project and the static output directory.
+It contains no credential.
+Sites deployments use a separate Git checkout rooted at this directory's contents, so the native app and generated media engines are not sent to the website host.
+Keep authoring changes in this parent repository and export the exact committed `site/` tree for deployment.
+Never create a nested Git repository inside this directory.
+
+## License and references
+
+Original page code and Converty artwork are GPL-3.0-or-later; see `LICENSE`.
+Manrope is SIL OFL 1.1, and Lucide uses ISC with MIT notices for Feather-derived icons.
+The deployed Credits link serves their complete license notices.
+See [landing-page research](../docs/landing-page.md) for the reference deconstruction and verification record.

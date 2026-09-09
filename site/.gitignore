@@ -1,0 +1,4 @@
+node_modules/
+dist/
+public/notices.txt
+.DS_Store

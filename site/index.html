@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f9fc" />
+    <meta
+      name="description"
+      content="Converty is an open-source, native Mac app for converting and editing images, video, audio, documents, and archives. Files stay on your Mac. Originals stay untouched."
+    />
+    <link rel="icon" type="image/png" href="/converty.png" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <noscript
+      ><style>
+        .family-tabs {
+          display: none;
+        }
+        .family-panel[hidden] {
+          display: grid !important;
+        }
+      </style></noscript
+    >
+    <title>Converty | A little shortcut for your files</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="#" aria-label="Converty home"
+        ><img src="/converty.png" alt="" width="38" height="38" />Converty</a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="#file-types">File types</a>
+        <a href="#questions">Questions</a>
+      </nav>
+      <a class="header-source" href="https://github.com/rirachii/converty"
+        ><i data-lucide="code-xml" aria-hidden="true"></i
+        ><span>Open source</span
+        ><i data-lucide="arrow-up-right" aria-hidden="true"></i
+      ></a>
+    </header>
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="intro-note">
+            <span class="little-dot"></span> A native little utility for Mac
+          </p>
+          <h1 id="hero-title">
+            Different format.<br /><span>Same familiar<br />place.</span>
+          </h1>
+          <p class="hero-description">
+            Convert, crop, and compress your files. All on your Mac. Right
+            beside the original.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#get-converty"
+              >Get Converty
+              <i data-lucide="arrow-down" aria-hidden="true"></i></a
+            ><a class="text-link" href="#how-it-works"
+              >Take a closer look
+              <i data-lucide="arrow-right" aria-hidden="true"></i
+            ></a>
+          </div>
+          <p class="availability">
+            macOS 14+ <span>·</span> Free & open source <span>·</span> Build it
+            yourself
+          </p>
+        </div>
+        <figure
+          class="hero-art"
+          aria-label="Workflow illustration: an original HEIC photo beside a new JPG copy, with Converty's format wheel between them."
+        >
+          <div class="scene-halo"></div>
+          <div class="file-object file-original">
+            <span class="file-fold"></span>
+            <div class="file-art">
+              <span class="photo-sun"></span
+              ><span class="photo-hill back"></span
+              ><span class="photo-hill front"></span>
+            </div>
+            <strong>Afternoon.heic</strong
+            ><span class="file-kind">THE ORIGINAL</span>
+          </div>
+          <div class="format-wheel">
+            <span class="wheel-format format-jpg">JPG</span
+            ><span class="wheel-format format-webp">WebP</span
+            ><span class="wheel-format format-png">PNG</span
+            ><span class="wheel-format format-pdf">PDF</span
+            ><span class="wheel-format format-tiff">TIFF</span
+            ><span class="wheel-format format-heic">HEIC</span>
+            <div class="wheel-center">
+              <img src="/converty.png" alt="" width="91" height="91" />
+            </div>
+          </div>
+          <div class="file-object file-copy">
+            <span class="file-fold"></span>
+            <div class="file-art">
+              <span class="photo-sun"></span
+              ><span class="photo-hill back"></span
+              ><span class="photo-hill front"></span>
+            </div>
+            <strong>Afternoon.jpg</strong
+            ><span class="file-kind"
+              ><i data-lucide="check" aria-hidden="true"></i> A FRESH COPY</span
+            >
+          </div>
+          <span class="gesture-label"
+            ><kbd>⇧</kbd> Hold Shift. Drop. Done.</span
+          >
+          <figcaption>
+            One small gesture. A new possibility.<span
+              >Workflow illustration</span
+            >
+          </figcaption>
+        </figure>
+      </section>
+
+      <section
+        class="workflow wrap section"
+        id="how-it-works"
+        aria-labelledby="workflow-title"
+      >
+        <div class="section-heading">
+          <h2 id="workflow-title">
+            Less opening apps.<br /><span>More getting on with it.</span>
+          </h2>
+          <p>
+            Your files are already in Finder. Start there, and stay in your
+            flow.
+          </p>
+        </div>
+        <ol class="steps">
+          <li>
+            <div class="step-visual step-drag">
+              <span class="mini-file"
+                ><i data-lucide="file-image" aria-hidden="true"></i>
+                afternoon.heic</span
+              ><kbd>⇧ Shift</kbd
+              ><i
+                class="drag-pointer"
+                data-lucide="mouse-pointer-2"
+                aria-hidden="true"
+              ></i>
+            </div>
+            <span class="step-number">01</span>
+            <h3>Bring a file along.</h3>
+            <p>
+              Start dragging a file in Finder, then hold Shift to bring up the
+              format wheel.
+            </p>
+          </li>
+          <li>
+            <div class="step-visual step-pick">
+              <span>PNG</span
+              ><span class="picked"
+                >JPG<i data-lucide="check" aria-hidden="true"></i></span
+              ><span>WebP</span>
+            </div>
+            <span class="step-number">02</span>
+            <h3>Give it a new job.</h3>
+            <p>
+              Drop onto a format. Add Option to switch to tools like crop,
+              resize, or trim.
+            </p>
+          </li>
+          <li>
+            <div class="step-visual step-save">
+              <div>
+                <i data-lucide="file-image" aria-hidden="true"></i
+                ><span>Original</span>
+              </div>
+              <i data-lucide="plus" aria-hidden="true"></i>
+              <div class="new-copy">
+                <i data-lucide="file-check-2" aria-hidden="true"></i
+                ><span>New copy</span>
+              </div>
+            </div>
+            <span class="step-number">03</span>
+            <h3>Find it right there.</h3>
+            <p>
+              The new copy lands beside the original by default. Your original
+              stays untouched.
+            </p>
+          </li>
+        </ol>
+        <p class="keyboard-note">
+          <i data-lucide="keyboard" aria-hidden="true"></i> More of a keyboard
+          person? Open the wheel with <kbd>⇧⌘Space</kbd> in Converty.
+        </p>
+      </section>
+
+      <section
+        class="file-section section"
+        id="file-types"
+        aria-labelledby="files-title"
+      >
+        <div class="wrap">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">A GOOD FIT FOR YOUR FILES</p>
+              <h2 id="files-title">
+                One small app.<br /><span>Quite a few tricks.</span>
+              </h2>
+            </div>
+            <p>
+              From a photo that needs to be smaller to a video that just needs
+              its sound.
+            </p>
+          </div>
+          <div class="file-explorer">
+            <div
+              class="family-tabs"
+              role="tablist"
+              aria-label="Explore supported file types"
+            >
+              <button
+                role="tab"
+                id="tab-images"
+                aria-selected="true"
+                aria-controls="panel-images"
+                data-family="images"
+              >
+                <i data-lucide="image" aria-hidden="true"></i>Images
+              </button>
+              <button
+                role="tab"
+                id="tab-video"
+                aria-selected="false"
+                aria-controls="panel-video"
+                tabindex="-1"
+                data-family="video"
+              >
+                <i data-lucide="film" aria-hidden="true"></i>Video
+              </button>
+              <button
+                role="tab"
+                id="tab-audio"
+                aria-selected="false"
+                aria-controls="panel-audio"
+                tabindex="-1"
+                data-family="audio"
+              >
+                <i data-lucide="audio-lines" aria-hidden="true"></i>Audio
+              </button>
+              <button
+                role="tab"
+                id="tab-documents"
+                aria-selected="false"
+                aria-controls="panel-documents"
+                tabindex="-1"
+                data-family="documents"
+              >
+                <i data-lucide="files" aria-hidden="true"></i>Documents
+              </button>
+              <button
+                role="tab"
+                id="tab-archives"
+                aria-selected="false"
+                aria-controls="panel-archives"
+                tabindex="-1"
+                data-family="archives"
+              >
+                <i data-lucide="archive" aria-hidden="true"></i>Archives
+              </button>
+            </div>
+            <div
+              class="family-panel"
+              role="tabpanel"
+              id="panel-images"
+              aria-labelledby="tab-images"
+              tabindex="0"
+            >
+              <div class="family-visual" aria-hidden="true">
+                <div class="large-file">
+                  <i data-lucide="image"></i><strong>HEIC</strong>
+                </div>
+                <span class="conversion-arrow"
+                  ><i data-lucide="arrow-right"></i
+                ></span>
+                <div class="large-file output-file">
+                  <i data-lucide="image"></i><strong>JPG</strong>
+                </div>
+              </div>
+              <div class="family-content">
+                <h3>The right image for the occasion.</h3>
+                <p>
+                  A lighter photo to share. A crop that gets to the point. A PDF
+                  made from a handful of images.
+                </p>
+                <div class="format-list" aria-label="Image output formats">
+                  <span>PNG</span><span>JPG</span><span>WebP</span
+                  ><span>HEIC</span><span>TIFF</span><span>PDF</span>
+                </div>
+                <p class="tool-line">
+                  <i data-lucide="sliders-horizontal" aria-hidden="true"></i>
+                  Compress · Resize · Crop · Collage · Remove metadata
+                </p>
+              </div>
+            </div>
+            <div
+              class="family-panel"
+              role="tabpanel"
+              id="panel-video"
+              aria-labelledby="tab-video"
+              tabindex="0"
+              hidden
+            >
+              <div class="family-visual" aria-hidden="true">
+                <div class="large-file">
+                  <i data-lucide="film"></i><strong>MOV</strong>
+                </div>
+                <span class="conversion-arrow"
+                  ><i data-lucide="arrow-right"></i
+                ></span>
+                <div class="large-file output-file">
+                  <i data-lucide="film"></i><strong>MP4</strong>
+                </div>
+              </div>
+              <div class="family-content">
+                <h3>A little less clip. A lot more useful.</h3>
+                <p>
+                  Trim the start, crop the frame, or keep just the audio. Make
+                  your video ready for its next stop.
+                </p>
+                <div class="format-list" aria-label="Video output formats">
+                  <span>MP4</span><span>MOV</span><span>MKV</span
+                  ><span>WebM</span><span>GIF</span><span>MP3</span
+                  ><span>M4A</span><span>WAV</span>
+                </div>
+                <p class="tool-line">
+                  <i data-lucide="sliders-horizontal" aria-hidden="true"></i>
+                  Compress · Crop · Trim · Change speed · Join · Split
+                </p>
+              </div>
+            </div>
+            <div
+              class="family-panel"
+              role="tabpanel"
+              id="panel-audio"
+              aria-labelledby="tab-audio"
+              tabindex="0"
+              hidden
+            >
+              <div class="family-visual" aria-hidden="true">
+                <div class="large-file">
+                  <i data-lucide="audio-lines"></i><strong>WAV</strong>
+                </div>
+                <span class="conversion-arrow"
+                  ><i data-lucide="arrow-right"></i
+                ></span>
+                <div class="large-file output-file">
+                  <i data-lucide="audio-lines"></i><strong>MP3</strong>
+                </div>
+              </div>
+              <div class="family-content">
+                <h3>Keep the parts worth listening to.</h3>
+                <p>
+                  Switch formats, even out the volume, or trim silence from the
+                  edges of a recording.
+                </p>
+                <div class="format-list" aria-label="Audio output formats">
+                  <span>MP3</span><span>M4A</span><span>WAV</span
+                  ><span>FLAC</span><span>OGG</span><span>AIFF</span>
+                </div>
+                <p class="tool-line">
+                  <i data-lucide="sliders-horizontal" aria-hidden="true"></i>
+                  Compress · Trim · Normalize · Mono / stereo · Trim edge
+                  silence
+                </p>
+              </div>
+            </div>
+            <div
+              class="family-panel"
+              role="tabpanel"
+              id="panel-documents"
+              aria-labelledby="tab-documents"
+              tabindex="0"
+              hidden
+            >
+              <div class="family-visual" aria-hidden="true">
+                <div class="large-file">
+                  <i data-lucide="file-text"></i><strong>PDF</strong>
+                </div>
+                <span class="conversion-arrow"
+                  ><i data-lucide="arrow-right"></i
+                ></span>
+                <div class="large-file output-file">
+                  <i data-lucide="file-text"></i><strong>TXT</strong>
+                </div>
+              </div>
+              <div class="family-content">
+                <h3>Put your pages in order.</h3>
+                <p>
+                  Merge or split PDFs, save pages as images, and extract
+                  selectable text. Turn text and Markdown into documents, too.
+                </p>
+                <div
+                  class="format-list"
+                  aria-label="Document outputs vary by input"
+                >
+                  <span>PDF</span><span>PNG</span><span>JPG</span
+                  ><span>TXT</span><span>DOCX</span>
+                </div>
+                <p class="tool-line">
+                  <i data-lucide="info" aria-hidden="true"></i> Text extraction
+                  needs selectable text. DOCX output is text-only; no OCR or
+                  DOCX input.
+                </p>
+              </div>
+            </div>
+            <div
+              class="family-panel"
+              role="tabpanel"
+              id="panel-archives"
+              aria-labelledby="tab-archives"
+              tabindex="0"
+              hidden
+            >
+              <div class="family-visual" aria-hidden="true">
+                <div class="large-file">
+                  <i data-lucide="folder"></i><strong>Files</strong>
+                </div>
+                <span class="conversion-arrow"
+                  ><i data-lucide="arrow-right"></i
+                ></span>
+                <div class="large-file output-file">
+                  <i data-lucide="archive"></i><strong>ZIP</strong>
+                </div>
+              </div>
+              <div class="family-content">
+                <h3>Everything, neatly together.</h3>
+                <p>
+                  Package a folder for sharing or unpack a supported archive.
+                  Your originals stay exactly where you left them.
+                </p>
+                <div class="format-list" aria-label="Archive output formats">
+                  <span>ZIP</span><span>TAR</span><span>TGZ</span
+                  ><span>GZIP</span>
+                </div>
+                <p class="tool-line">
+                  <i data-lucide="info" aria-hidden="true"></i> GZIP takes one
+                  file. Extraction checks paths and rejects symbolic and hard
+                  links.
+                </p>
+              </div>
+            </div>
+          </div>
+          <p class="format-footnote">
+            Output choices depend on the input file.
+            <a href="https://github.com/rirachii/converty#native-capabilities"
+              >See the full format guide
+              <i data-lucide="arrow-up-right" aria-hidden="true"></i
+            ></a>
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="workspace-section wrap section"
+        aria-labelledby="workspace-title"
+      >
+        <div class="section-heading">
+          <h2 id="workspace-title">
+            A quick gesture.<br /><span>Or room to spread out.</span>
+          </h2>
+          <p>
+            Open the full workspace for batches, a closer edit, and all 21 extra
+            tools.
+          </p>
+        </div>
+        <figure class="workspace-figure">
+          <div class="workspace-backdrop">
+            <img
+              src="/workspace.png"
+              alt="The real Converty Mac app in dark appearance, showing its native sidebar and tools including compress, crop, resize, trim, and merge PDFs."
+              width="900"
+              height="652"
+              loading="lazy"
+            />
+          </div>
+          <figcaption>
+            The real Converty workspace on macOS 26. SwiftUI & AppKit, right at
+            home.
+          </figcaption>
+        </figure>
+        <div class="principles">
+          <div>
+            <i data-lucide="hard-drive" aria-hidden="true"></i>
+            <h3>Your Mac does the work.</h3>
+            <p>
+              Files are processed on your device. No uploads, accounts, or
+              analytics.
+            </p>
+          </div>
+          <div>
+            <i data-lucide="copy-check" aria-hidden="true"></i>
+            <h3>The original is a keeper.</h3>
+            <p>
+              Every action makes a separate copy. Existing filenames get a safe
+              numeric suffix.
+            </p>
+          </div>
+          <div>
+            <i data-lucide="panel-left" aria-hidden="true"></i>
+            <h3>Made to feel like your Mac.</h3>
+            <p>
+              Native controls, keyboard shortcuts, and light or dark appearance.
+              Liquid Glass on macOS 26.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="opensource-section"
+        id="get-converty"
+        aria-labelledby="opensource-title"
+      >
+        <div class="wrap opensource-inner">
+          <img
+            class="closing-icon"
+            src="/converty.png"
+            alt="Converty app icon"
+            width="132"
+            height="132"
+            loading="lazy"
+          />
+          <div>
+            <p class="eyebrow">SMALL UTILITY. OPEN POSSIBILITIES.</p>
+            <h2 id="opensource-title">Make yourself at home.</h2>
+            <p>
+              Converty is free, open source, and just getting started. Build it,
+              make it your own, or help shape what comes next.
+            </p>
+            <div class="source-actions">
+              <a
+                class="button primary"
+                href="https://github.com/rirachii/converty#build-and-open-the-mac-app"
+                >Build for your Mac
+                <i data-lucide="arrow-up-right" aria-hidden="true"></i></a
+              ><a class="text-link" href="https://github.com/rirachii/converty"
+                ><i data-lucide="code-xml" aria-hidden="true"></i> Explore the
+                source</a
+              >
+            </div>
+            <p class="release-note">
+              Early source release · GPL-3.0-or-later<br />Requires Xcode 26+,
+              XcodeGen, and self-contained FFmpeg to build.<br />A signed,
+              ready-to-install download isn’t available yet.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="faq wrap section"
+        id="questions"
+        aria-labelledby="faq-title"
+      >
+        <div>
+          <h2 id="faq-title">A few good <br /><span>questions.</span></h2>
+          <p>
+            Something else on your mind?
+            <a
+              class="text-link"
+              href="https://github.com/rirachii/converty/issues"
+              >Let’s talk on GitHub
+              <i data-lucide="arrow-up-right" aria-hidden="true"></i
+            ></a>
+          </p>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>
+              Can I download it today?<i
+                data-lucide="plus"
+                aria-hidden="true"
+              ></i>
+            </summary>
+            <p>
+              You can get the source and build Converty locally today. This is
+              an early source release, so there isn’t a signed, notarized
+              installer yet. The
+              <a
+                href="https://github.com/rirachii/converty#build-and-open-the-mac-app"
+                >build guide</a
+              >
+              lists the tools and steps you need.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Which Macs does it work on?<i
+                data-lucide="plus"
+                aria-hidden="true"
+              ></i>
+            </summary>
+            <p>
+              The app targets macOS 14 or later. The current local build is
+              verified on Apple Silicon with macOS 26. Building requires Xcode
+              26 or later, XcodeGen, and a self-contained FFmpeg engine. Other
+              supported OS versions still need release testing.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Do my files leave my Mac?<i
+                data-lucide="plus"
+                aria-hidden="true"
+              ></i>
+            </summary>
+            <p>
+              No. Conversion and editing run on your Mac using native frameworks
+              and a bundled media engine. There are no file uploads, accounts,
+              or analytics in Converty.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Where does the converted file go?<i
+                data-lucide="plus"
+                aria-hidden="true"
+              ></i>
+            </summary>
+            <p>
+              Beside the original, by default. You can choose a different folder
+              in the app. Combined outputs, like merged PDFs, go beside the
+              first input file. Converty creates a separate copy and adds a
+              number if that filename is already taken.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Is it really free and open source?<i
+                data-lucide="plus"
+                aria-hidden="true"
+              ></i>
+            </summary>
+            <p>
+              Yes. Converty’s source is available under
+              <a href="https://github.com/rirachii/converty/blob/main/LICENSE"
+                >GPL-3.0-or-later</a
+              >. You can use, study, and modify it under that license. Bug
+              reports, improvements, and contributions are welcome.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer wrap">
+      <a class="wordmark" href="#"
+        ><img src="/converty.png" alt="" width="30" height="30" />Converty</a
+      >
+      <p>A little less friction. A little more flow.</p>
+      <div>
+        <a href="https://github.com/rirachii/converty">GitHub</a
+        ><a href="https://github.com/rirachii/converty/blob/main/LICENSE"
+          >License</a
+        ><a href="/notices.txt">Credits</a>
+      </div>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

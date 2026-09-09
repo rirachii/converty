@@ -1,0 +1,21 @@
+{
+  "name": "converty-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5174 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4174 --strictPort",
+    "predev": "node scripts/prepare-notices.mjs",
+    "prebuild": "node scripts/prepare-notices.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/manrope": "5.3.0",
+    "lucide": "1.43.0"
+  },
+  "devDependencies": {
+    "vite": "8.2.2"
+  }
+}
