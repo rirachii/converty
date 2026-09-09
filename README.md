@@ -10,14 +10,14 @@ Files stay on your Mac and every operation creates a separate copy.
 
 ## Download for Mac
 
-[Download Converty 0.1.0 for Apple Silicon](https://github.com/rirachii/converty/releases/download/v0.1.0/Converty-0.1.0-macOS-arm64.dmg).
+[Download Converty 0.1.1 for Apple Silicon](https://github.com/rirachii/converty/releases/download/v0.1.1/Converty-0.1.1-macOS-arm64.dmg).
 Open the DMG, drag Converty into Applications, then open it from Applications.
 The media engine is included; Xcode and developer tools are not required to use it.
 Requires an Apple Silicon Mac and macOS 14 or later; current device verification is on macOS 26.
 
 This is an early release, ad-hoc signed and **not notarized by Apple**.
 macOS may block its first launch; if you choose to trust this build, follow [Apple's guidance for an unidentified developer](https://support.apple.com/en-us/102445).
-[Release notes, checksums, and corresponding sources](https://github.com/rirachii/converty/releases/tag/v0.1.0) are available together.
+[Release notes, checksums, and corresponding sources](https://github.com/rirachii/converty/releases/tag/v0.1.1) are available together.
 
 Or install the same app with [Homebrew](https://brew.sh):
 
