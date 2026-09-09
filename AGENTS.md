@@ -6,6 +6,8 @@ Read `DESIGN.md`, `macOS/README.md`, and `docs/native-architecture.md` for nativ
 `docs/architecture.md` covers the web edition only.
 The native app's marketing site lives in `site/`; read `site/PRODUCT.md`, `site/DESIGN.md`, and `site/README.md` before changing it.
 Build it separately with `npm ci --prefix site` and `npm run build --prefix site`.
+Public hosting uses the Vercel `converty` project with Root Directory set to `site`.
+Run Vercel CLI commands from the repository root; `.vercelignore` limits uploads to the landing-page source.
 The website's Get Converty button links directly to the versioned DMG release asset.
 Keep Apple Silicon requirements and unnotarized early-release status visible until verified signing and notarization are completed.
 

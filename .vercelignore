@@ -1,0 +1,8 @@
+*
+!site
+!site/**
+site/node_modules/**
+site/dist/**
+site/.openai/**
+site/.vercel/**
+site/.env*

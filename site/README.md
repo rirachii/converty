@@ -40,11 +40,27 @@ The format explorer switches explanations only.
 ## Hosting
 
 Any static host can serve the contents of `dist/`.
-The `.openai/hosting.json` manifest records the registered Sites project and the static output directory.
-It contains no credential.
-Sites deployments use a separate Git checkout rooted at this directory's contents, so the native app and generated media engines are not sent to the website host.
-Keep authoring changes in this parent repository and export the exact committed `site/` tree for deployment.
-Never create a nested Git repository inside this directory.
+The public site uses the Vercel project `converty` in `rirachiis-projects`, connected to `rirachii/converty` on GitHub.
+Set the Vercel Root Directory to `site` and Node.js version to `22.x`.
+`vercel.json` selects Vite, installs with `npm ci`, runs `npm run build`, and serves `dist/`.
+The production branch is `main`.
+
+For a manual deployment, run these commands from the parent repository root:
+
+```sh
+npm ci --prefix site
+npm run build --prefix site
+vercel link --yes --project converty --scope rirachiis-projects
+vercel deploy --prod --scope rirachiis-projects
+```
+
+The root `.vercelignore` limits CLI uploads to the landing-page source and excludes dependencies, local builds, environment files, and Sites metadata.
+Keep the generated `.vercel/` project link ignored.
+Verify the public production URL without authentication after deploying, including the DMG download and Homebrew command.
+
+The earlier private Sites preview is recorded separately in `.openai/hosting.json`.
+That manifest contains no credential and is not part of Vercel deployments.
+Keep authoring changes in this parent repository; do not create a nested Git repository in `site/`.
 
 ## License and references
 
