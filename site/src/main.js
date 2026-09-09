@@ -65,6 +65,23 @@ document.querySelectorAll('a[href="#install"]').forEach((link) => {
   });
 });
 revealInstallationHelp();
+
+const copyCommand = document.querySelector("[data-copy-command]");
+if (navigator.clipboard?.writeText) {
+  copyCommand.hidden = false;
+  copyCommand.addEventListener("click", async () => {
+    const status = document.querySelector(".copy-status");
+    try {
+      await navigator.clipboard.writeText(
+        document.getElementById("brew-command").textContent.trim(),
+      );
+      status.textContent = "Install command copied. Paste it into Terminal.";
+    } catch {
+      status.textContent = "Select the command and copy it manually.";
+    }
+  });
+}
+
 function selectTab(tab) {
   tabs.forEach((item) => {
     const selected = item === tab;

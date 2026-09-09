@@ -17,5 +17,6 @@ No repeated scroll reveals, fake progress, fabricated conversion results, autopl
 Under reduced motion, show all content in its final static position.
 
 The strongest CTA downloads the actual versioned DMG release asset directly.
+Offer Homebrew as a quieter text link in the hero and a compact selectable command in the closing section.
 Use real links to the GitHub repository, installation help, build guide, issue tracker, and license.
 Keep the early release's Apple Silicon requirement and unnotarized status beside the download action.

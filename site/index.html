@@ -68,7 +68,8 @@
           <p class="availability" id="download-availability">
             Apple Silicon · macOS 14+ · Free & open source<br />
             Early release · Not notarized ·
-            <a href="#install">Installation help</a>
+            <a href="#install">Installation help</a><br />
+            <a href="#homebrew">Install with Homebrew</a>
           </p>
         </div>
         <figure
@@ -549,6 +550,23 @@
                 source</a
               >
             </div>
+            <div class="homebrew-install" id="homebrew">
+              <p class="install-label">Or install with Homebrew</p>
+              <div class="command-row">
+                <code id="brew-command"
+                  >brew install --cask rirachii/tap/converty</code
+                >
+                <button
+                  type="button"
+                  class="copy-command"
+                  data-copy-command
+                  hidden
+                >
+                  Copy
+                </button>
+              </div>
+              <p class="copy-status" role="status" aria-live="polite"></p>
+            </div>
             <p class="release-note">
               Version 0.1.0 · Apple Silicon · macOS 14+ · GPL-3.0-or-later<br />
               Early release, not notarized by Apple. macOS may block the first
@@ -595,9 +613,11 @@
             <p>
               Click Get Converty to download the DMG. Open it, drag Converty
               into Applications, and open the app from there. You do not need
-              Xcode or developer tools. This early release is not notarized by
-              Apple, so macOS may block its first launch. If you choose to trust
-              the build, follow
+              Xcode or developer tools. If you use Homebrew, copy the
+              <a href="#homebrew">install command above</a> into Terminal; it
+              installs the same app in Applications. This early release is not
+              notarized by Apple, so macOS may block its first launch. If you
+              choose to trust the build, follow
               <a href="https://support.apple.com/en-us/102445"
                 >Apple’s instructions for opening an app from an unidentified
                 developer</a

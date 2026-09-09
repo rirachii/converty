@@ -31,6 +31,9 @@ Keep capability claims aligned with the root README and native implementation.
 The primary CTA links directly to the versioned GitHub DMG asset.
 The early release is explicitly labeled as Apple Silicon and not notarized by Apple.
 Installation-help links expand the relevant FAQ disclosure; source-build instructions remain available separately.
+The Homebrew link leads to a selectable install command with a copy button when the Clipboard API is available.
+The command remains readable without JavaScript; clipboard failures show manual-copy guidance.
+Keep the command aligned with the canonical [Homebrew tap](https://github.com/rirachii/homebrew-tap).
 The format-wheel scene is an original workflow illustration, explicitly labeled as such; it does not accept or convert files.
 The format explorer switches explanations only.
 

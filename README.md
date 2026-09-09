@@ -19,6 +19,17 @@ This is an early release, ad-hoc signed and **not notarized by Apple**.
 macOS may block its first launch; if you choose to trust this build, follow [Apple's guidance for an unidentified developer](https://support.apple.com/en-us/102445).
 [Release notes, checksums, and corresponding sources](https://github.com/rirachii/converty/releases/tag/v0.1.0) are available together.
 
+Or install the same app with [Homebrew](https://brew.sh):
+
+```sh
+brew install --cask rirachii/tap/converty
+```
+
+The [project's Homebrew tap](https://github.com/rirachii/homebrew-tap) installs Converty in Applications and checks the DMG's SHA-256 digest.
+The same Apple Silicon requirements and unnotarized status apply.
+For future updates, run `brew update` followed by `brew upgrade --cask rirachii/tap/converty`.
+Use `brew uninstall --cask rirachii/tap/converty` to remove the app while retaining your files and preferences.
+
 ## Build and open the Mac app
 
 Runs on macOS 14+; building requires Xcode 26+, XcodeGen, and a self-contained FFmpeg executable.
