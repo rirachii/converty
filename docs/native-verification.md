@@ -86,3 +86,7 @@ The earlier web checks remain recorded separately in `docs/verification.md`.
 - Dragged the start handle and checked that its timestamp changed; the accessible end-handle increment changed the endpoint by 0.1 seconds. Exported the resulting approximately 6.70-second selection and measured a 6.733-second MP4 (within one 30-fps frame).
 - Local app installation was verified separately from the build. No public DMG, GitHub release, signing/notarization update, or website deployment was performed.
 - Minimum macOS 14/15 appearance, VoiceOver narration, unavailable-decoder fallback, and mixed-duration batch behavior still need dedicated manual coverage.
+
+## Version 0.1.2 release package
+
+Build 5 packages the visual trim editor from source commit `09ddac1dad725e9e75d23a1862ceb0c38b59d4d2`. All required PR checks passed before merge. The media engine was rebuilt from the pinned sources; all 22 core tests passed against that engine. The package script verified the compressed DMG, mounted app signatures, and executable/engine hashes. Matching application source, media-engine sources and notices, provenance, and checksums accompany the public early release. It remains Apple Silicon only and unnotarized.
