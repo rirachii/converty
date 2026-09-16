@@ -40,6 +40,12 @@ Settings offers System, Light, and Dark appearance without changing the Mac's gl
 
 No web server, WebView, Node process, or WebAssembly engine is used by the Mac app. The app is not sandboxed, and reads only files selected by the user or required local resources. It makes no application network requests.
 
+## Trimming video and audio
+
+Choose Trim in the workspace or format wheel. Drag the blue start/end handles on the timeline, or enter precise seconds below it. Focus a handle and use the arrow keys for 0.1-second adjustments. Play previews the selected range; Reset selects the whole file. Video thumbnails are generated locally by macOS.
+
+The initial selection preserves the existing first-five-seconds default, limited to the file's duration. Handles cannot cross or leave the source. For multiple files, the preview shows the first file and the same times apply to each; every file must contain that range. Formats macOS cannot preview retain timestamp entry and FFmpeg export. Saving always creates a separate output.
+
 ## Distribution
 
 `Scripts/package-dmg.py` packages the release app alongside the exact source ZIP, media-engine source archives, build recipe, licenses, provenance, and checksums.

@@ -78,3 +78,11 @@ There is no Developer ID signing or Apple notarization.
 The landing page is deployed, and the early Apple Silicon DMG uses the source and packaging process in [the release runbook](macos-release.md).
 The minimum macOS 14 target and other CPU architectures have not been tested on physical machines.
 The earlier web checks remain recorded separately in `docs/verification.md`.
+
+## Visual trim editor (2026-09-16)
+
+- Native Release build succeeded with the self-contained bundled FFmpeg; all 22 Swift package tests passed, including three range-boundary tests and the existing encoded-video trim test.
+- Verified the installed app's workspace inspector and floating wheel → Trim panel show local thumbnails, blue start/end handles, timestamp fields, Reset, and selected-range playback.
+- Dragged the start handle and checked that its timestamp changed; the accessible end-handle increment changed the endpoint by 0.1 seconds. Exported the resulting approximately 6.70-second selection and measured a 6.733-second MP4 (within one 30-fps frame).
+- Local app installation was verified separately from the build. No public DMG, GitHub release, signing/notarization update, or website deployment was performed.
+- Minimum macOS 14/15 appearance, VoiceOver narration, unavailable-decoder fallback, and mixed-duration batch behavior still need dedicated manual coverage.

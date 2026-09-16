@@ -69,6 +69,6 @@ The user subsequently supplied the local demo and explicitly requested its inter
 A second pass sampled the video every half second and inspected full-resolution wheel/editor frames.
 The step-by-step plan was written before the wheel implementation in [the native drag plan](plans/2026-09-08-native-drag-wheel.md).
 
-The native edition adds contextual radial formats, Shift/Option drag handling, a compact editor and progress flow, sibling outputs, freeform positioned crop with video-frame scrubbing, HEIC, TAR/TGZ and libarchive extraction, native multi-code QR reading, video joining/splitting, edge silence trimming, and cover-image audio-to-video.
+The native edition adds contextual radial formats, Shift/Option drag handling, a compact editor and progress flow, sibling outputs, freeform positioned crop with video-frame scrubbing, visual trim handles with local thumbnail and selected-range playback previews, HEIC, TAR/TGZ and libarchive extraction, native multi-code QR reading, video joining/splitting, edge silence trimming, and cover-image audio-to-video.
 Its capabilities and verification state are documented separately in the [README](../README.md) and [native verification](native-verification.md).
 The earlier web limitations in the comparison table are not claims about the native edition.

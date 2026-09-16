@@ -14,7 +14,9 @@ struct InspectorView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     HStack { Text(workspace.selected.count == 1 ? "File preview" : "\(workspace.selected.count) files selected").font(.system(size: 12, weight: .semibold)); Spacer() }
                     if let first {
-                        FilePreview(url: first.url, crop: workspace.tool == .crop ? workspace.options : nil).frame(height: 170).clipShape(RoundedRectangle(cornerRadius: 9))
+                        if workspace.tool != .trim {
+                            FilePreview(url: first.url, crop: workspace.tool == .crop ? workspace.options : nil).frame(height: 170).clipShape(RoundedRectangle(cornerRadius: 9))
+                        }
                         Text(first.url.lastPathComponent).font(.system(size: 11)).foregroundStyle(.secondary).lineLimit(2)
                     }
                     Divider()
@@ -80,10 +82,10 @@ struct InspectorView: View {
             labeled("Horizontal position") { Slider(value: $workspace.options.cropX, in: 0...1) }
             labeled("Vertical position") { Slider(value: $workspace.options.cropY, in: 0...1) }
         }
-        if [.trim, .snapshot].contains(workspace.tool) {
-            decimal(workspace.tool == .snapshot ? "Frame at (seconds)" : "Start (seconds)", value: $workspace.options.start)
-            if workspace.tool == .trim { decimal("End (seconds)", value: $workspace.options.end) }
+        if workspace.tool == .trim, let first {
+            TrimEditor(url: first.url, options: $workspace.options, fileCount: workspace.selected.count).id(first.id)
         }
+        if workspace.tool == .snapshot { decimal("Frame at (seconds)", value: $workspace.options.start) }
         if workspace.tool == .splitVideo {
             labeled("Split at (seconds)") { TextField("5, 10, 15", text: $workspace.options.splitPoints).textFieldStyle(.roundedBorder) }
             Text("Separate times with commas. Each segment becomes an MP4 in a new folder.").font(.system(size: 11)).foregroundStyle(.secondary)
@@ -190,8 +192,9 @@ struct PreferencesView: View {
 
 struct NativeMediaPlayer: NSViewRepresentable {
     let player: AVPlayer
+    var showsControls = true
     func makeNSView(context: Context) -> AVPlayerView {
-        let view = AVPlayerView(); view.player = player; view.controlsStyle = .floating; view.showsFullScreenToggleButton = false; return view
+        let view = AVPlayerView(); view.player = player; view.controlsStyle = showsControls ? .floating : .none; view.showsFullScreenToggleButton = false; return view
     }
     func updateNSView(_ view: AVPlayerView, context: Context) { if view.player !== player { view.player?.pause(); view.player = player } }
     static func dismantleNSView(_ view: AVPlayerView, coordinator: ()) { view.player?.pause(); view.player = nil }
