@@ -33,6 +33,8 @@ Single-file outputs default to each original's directory; group outputs use the 
 `CropEditor` loads oriented dimensions and preview frames, edits a normalized rectangle, and provides freeform/fixed aspect, move/resize, percentage controls, and timeline scrubbing.
 `NormalizedCrop` validates and maps this rectangle to actual pixels; video crop coordinates and dimensions are rounded to even pixels for codec compatibility.
 
+`TrimEditor` is shared by the floating trim panel and workspace inspector. It binds its thumbnail range, timestamp fields, and keyboard/accessibility adjustments to the same conversion options. `TrimRange` constrains selection bounds; AVFoundation loads duration and bounded-size thumbnail samples asynchronously. Its AVPlayer previews only the selected range using `forwardPlaybackEndTime`. Leaving the editor pauses playback, removes the time observer, and cancels thumbnail generation. Unavailable macOS previews retain numeric entry for FFmpeg-supported files.
+
 The native media preview uses an AppKit `AVPlayerView` representable, avoiding the `_AVKit_SwiftUI` VideoPlayer metadata crash observed on the verification Mac.
 
 ## Processing and file lifetime

@@ -78,10 +78,10 @@ import ConvertyCore
         job.onFinish = { [weak panel, weak job] in
             if job?.finished == true { panel?.orderOut(nil) }
         }
-        job.onEdit = { [weak self, weak job] in guard let job else { return }; job.error = nil; self?.resize(to: CGSize(width: 420, height: job.options.tool == .crop ? 640 : 570)) }
+        job.onEdit = { [weak self, weak job] in guard let job else { return }; job.error = nil; self?.resize(to: CGSize(width: job.options.tool == .trim ? 520 : 420, height: job.options.tool == .crop ? 640 : 570)) }
         job.onClose = { [weak self] in self?.panel?.orderOut(nil) }
         let screen = NSScreen.screens.first(where: { $0.frame.intersects(anchor) }) ?? NSScreen.main!
-        let size = choice.tool == nil ? CGSize(width: 360, height: 205) : CGSize(width: 420, height: choice.tool == .crop ? 640 : 570)
+        let size = choice.tool == nil ? CGSize(width: 360, height: 205) : CGSize(width: choice.tool == .trim ? 520 : 420, height: choice.tool == .crop ? 640 : 570)
         panel.setFrame(WheelGeometry.frame(center: CGPoint(x: anchor.midX, y: anchor.midY), size: size, screen: screen.visibleFrame.insetBy(dx: 12, dy: 12)), display: true)
         panel.makeKeyAndOrderFront(nil)
         if choice.tool == nil { job.running = false; job.start() }
@@ -105,7 +105,12 @@ struct FloatingToolEditor: View {
             if job.running || job.finished || job.error != nil { status }
             else {
                 if job.options.tool == .crop { CropEditor(url: job.inputs[0], options: $job.options) }
-                else {
+                else if job.options.tool == .trim {
+                    ScrollView {
+                        TrimEditor(url: job.inputs[0], options: $job.options, fileCount: job.inputs.count)
+                        Text(job.inputs[0].lastPathComponent).font(.caption).foregroundStyle(.secondary).lineLimit(2)
+                    }
+                } else {
                     FilePreview(url: job.inputs[0]).frame(height: 170).clipShape(RoundedRectangle(cornerRadius: 9))
                     ScrollView { CompactToolOptions(inputs: job.inputs, options: $job.options).frame(maxWidth: .infinity, alignment: .leading) }
                 }
