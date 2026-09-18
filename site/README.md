@@ -29,12 +29,10 @@ Third-party notices are generated before development and production builds.
 - `PRODUCT.md` and `DESIGN.md` describe the page's audience and visual contract.
 
 Keep capability claims aligned with the root README and native implementation.
-The primary CTA links directly to the versioned GitHub DMG asset.
-The closing download section and installation FAQ disclose the Apple Silicon requirement and unnotarized early-release status; the hero keeps only its actions and install command.
-Installation-help links expand the relevant FAQ disclosure; source-build instructions remain available separately.
-The hero and closing section each show a selectable Homebrew command with an independent copy button and status when the Clipboard API is available.
-The command remains readable without JavaScript; clipboard failures show manual-copy guidance.
-Keep the command aligned with the canonical [Homebrew tap](https://github.com/rirachii/homebrew-tap).
+The primary CTA links to Stripe Checkout for the paid early Mac download.
+The closing download section and installation FAQ disclose the Apple Silicon requirement and unnotarized early-release status.
+Installation-help links expand the relevant FAQ disclosure.
+Do not show Homebrew, GitHub, source-build, or direct public download paths on the paid landing page.
 The hero plays the actual Converty demo, muted and looping, with native playback controls. Reduced-motion preferences disable automatic playback; without JavaScript, visitors can start it themselves. The adjacent workflow explains the silent recording.
 The format explorer switches explanations only.
 
@@ -58,7 +56,7 @@ vercel deploy --prod --scope rirachiis-projects
 
 The root `.vercelignore` limits CLI uploads to the landing-page source and excludes dependencies, local builds, environment files, and Sites metadata.
 Keep the generated `.vercel/` project link ignored.
-Verify the public production URL without authentication after deploying, including the DMG download and Homebrew command.
+Verify the public production URL without authentication after deploying, including the Stripe checkout link and paid-page copy.
 
 The earlier private Sites preview is recorded separately in `.openai/hosting.json`.
 That manifest contains no credential and is not part of Vercel deployments.
@@ -66,7 +64,7 @@ Keep authoring changes in this parent repository; do not create a nested Git rep
 
 ## License and references
 
-Original page code and Converty artwork are GPL-3.0-or-later; see `LICENSE`.
+The public page should not market Converty as open source unless Myko reverses the paid-private direction.
 Manrope is SIL OFL 1.1, and Lucide uses ISC with MIT notices for Feather-derived icons.
 The deployed Credits link serves their complete license notices.
 See [landing-page research](../docs/landing-page.md) for the reference deconstruction and verification record.

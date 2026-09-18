@@ -8,14 +8,15 @@ web
 
 ## Users and purpose
 Introduce the native Converty Mac app to people who convert and edit everyday files.
-Explain its local workflow, supported file families, and open-source availability, then offer a direct Mac DMG download and the public source repository.
+Explain its local workflow and supported file families, then offer a paid early Mac download.
 This website markets the Mac app; the separate browser converter remains in the parent repository.
 
 ## Conversion and proof
-The primary action is Get Converty, linking directly to the versioned GitHub DMG asset.
-Homebrew is a secondary installation option, with the project's full cask command available to copy.
+The primary action is Buy Converty, linking to Stripe Checkout.
+Do not advertise Homebrew or public source installation on the paid landing page.
 The first download is for Apple Silicon, ad-hoc signed and not notarized by Apple; disclose that in the closing download section and installation help.
-There is no customer testimonial, adoption metric, or price claim.
+There is no customer testimonial or adoption metric.
+The current price is $9.
 Use implemented capabilities, the actual icon, an actual app screenshot, and the approved Converty demo recording as evidence.
 
 ## Personality and references
@@ -27,7 +28,7 @@ Create original copy, layout, imagery, and motion.
 ## Strategic principles
 Show what happens to a file before listing the tools.
 Keep the original and its new copy close together in both the story and visuals.
-Make open source a useful invitation with a real destination.
+Keep public copy focused on the paid download, local processing, and installation caveats.
 Explain the downloadable release's requirements and signing status clearly.
 
 ## Accessibility and inclusion
