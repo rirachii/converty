@@ -67,19 +67,11 @@ Use an exact versioned GitHub release-asset URL for the website's download ancho
 GitHub serves release assets as attachments; the download does not depend on client-side JavaScript or an intermediate release page.
 Publish and verify the actual asset before deploying website links to it.
 
-## Publish the Homebrew cask
+## Homebrew cask status
 
-The canonical cask lives in [`rirachii/homebrew-tap`](https://github.com/rirachii/homebrew-tap), at `Casks/converty.rb`.
-Users install it with `brew install --cask rirachii/tap/converty`.
-It downloads the same release DMG, checks its SHA-256 digest, and installs the application in Applications.
-Do not maintain a second cask copy in this repository.
-
-After publishing a new verified DMG, update the cask's version and SHA-256 from that release's `SHA256SUMS.txt` and `release.json`.
-Keep its architecture and minimum macOS dependency aligned with the actual app bundle.
-Keep the unnotarized caveat until signing and notarization are complete.
-Run Homebrew style and audit checks and verify a real installation before publishing the tap update.
-The tap's CI checks the cask and installs, verifies, and uninstalls the app on a disposable macOS runner.
-Never add quarantine removal, Gatekeeper changes, or destructive preference cleanup to the cask.
+Do not publish or advertise a public Homebrew cask while Converty is sold through Stripe.
+A public cask would let users install the release without buying it.
+If package-manager distribution returns later, update the payment and entitlement plan first, then republish the cask deliberately.
 
 ## Installation and future notarization
 

@@ -2,7 +2,7 @@ import { readFile, writeFile } from "node:fs/promises";
 
 const dependencies = ["@fontsource-variable/manrope", "lucide"];
 let notices =
-  "Converty landing page\nOriginal code and Converty artwork: GPL-3.0-or-later.\nSource: https://github.com/rirachii/converty/tree/main/site\n\n";
+  "Converty landing page\nThird-party dependency notices.\n\n";
 for (const name of dependencies) {
   const root = new URL(`../node_modules/${name}/`, import.meta.url);
   const { version } = JSON.parse(

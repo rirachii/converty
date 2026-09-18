@@ -643,11 +643,11 @@ kbd {
 .principles p {
   font-size: 14px;
 }
-.opensource-section {
+.purchase-section {
   background: var(--blue-soft);
   padding-block: 78px;
 }
-.opensource-inner {
+.purchase-inner {
   display: grid;
   grid-template-columns: 210px 1fr;
   align-items: start;
@@ -663,17 +663,17 @@ kbd {
   box-shadow: 0 13px 24px #2369cb20;
   margin-top: 12px;
 }
-.opensource-inner h2 {
+.purchase-inner h2 {
   font-size: 43px;
   margin-bottom: 20px;
 }
-.opensource-inner p {
+.purchase-inner p {
   font-size: 14px;
 }
-.opensource-inner .eyebrow {
+.purchase-inner .eyebrow {
   font-size: 9px;
 }
-.opensource-inner .release-note {
+.purchase-inner .release-note {
   margin-top: 20px;
   font-size: 10px;
   color: var(--muted);
@@ -977,7 +977,7 @@ details a {
   .principles p {
     font-size: 13px;
   }
-  .opensource-inner {
+  .purchase-inner {
     grid-template-columns: 130px 1fr;
     gap: 22px;
   }
@@ -985,14 +985,14 @@ details a {
     width: 100px;
     height: 100px;
   }
-  .opensource-inner h2 {
+  .purchase-inner h2 {
     font-size: 34px;
   }
   .source-actions {
     gap: 20px;
     flex-wrap: wrap;
   }
-  .opensource-inner p {
+  .purchase-inner p {
     font-size: 13px;
   }
   .faq {
@@ -1190,10 +1190,10 @@ details a {
   .principles p {
     font-size: 14px;
   }
-  .opensource-section {
+  .purchase-section {
     padding-block: 48px;
   }
-  .opensource-inner {
+  .purchase-inner {
     display: block;
   }
   .closing-icon {
@@ -1201,13 +1201,13 @@ details a {
     height: 82px;
     margin: 0 0 30px 4px;
   }
-  .opensource-inner h2 {
+  .purchase-inner h2 {
     font-size: 33px;
   }
-  .opensource-inner p br {
+  .purchase-inner p br {
     display: none;
   }
-  .opensource-inner .release-note br {
+  .purchase-inner .release-note br {
     display: initial;
   }
   .source-actions {
