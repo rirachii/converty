@@ -2,22 +2,21 @@
 
 <img src="macOS/Artwork/AppIcon.icon/Assets/Converty.png" alt="Converty app icon" width="128" height="128">
 
-An open-source, native macOS file utility inspired by Tangerine's local file workflow.
+A native macOS file utility inspired by Tangerine's local file workflow.
 Built with SwiftUI and AppKit, with image, video, audio, PDF, text, and archive tools.
 Files stay on your Mac and every operation creates a separate copy.
 
-[Website](https://converty-pi.vercel.app) · [Source](https://github.com/rirachii/converty) · [Report an issue](https://github.com/rirachii/converty/issues) · [Contribute](CONTRIBUTING.md)
+[Website](https://converty.halfwind.studio) · [Report an issue](https://github.com/rirachii/converty/issues) · [Contribute](CONTRIBUTING.md)
 
-## Download for Mac
+## Get Converty for Mac
 
-[Download Converty 0.1.2 for Apple Silicon](https://github.com/rirachii/converty/releases/download/v0.1.2/Converty-0.1.2-macOS-arm64.dmg).
-Open the DMG, drag Converty into Applications, then open it from Applications.
+[Buy Converty for Mac](https://converty.halfwind.studio).
+After purchase, open the DMG, drag Converty into Applications, then open it from Applications.
 The media engine is included; Xcode and developer tools are not required to use it.
 Requires an Apple Silicon Mac and macOS 14 or later; current device verification is on macOS 26.
 
 This is an early release, ad-hoc signed and **not notarized by Apple**.
 macOS may block its first launch; if you choose to trust this build, follow [Apple's guidance for an unidentified developer](https://support.apple.com/en-us/102445).
-[Release notes, checksums, and corresponding sources](https://github.com/rirachii/converty/releases/tag/v0.1.2) are available together.
 
 ## Build and open the Mac app
 
