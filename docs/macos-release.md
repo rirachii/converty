@@ -63,9 +63,10 @@ Existing release artifacts are preserved; move an earlier failed attempt aside b
 
 Upload these assets together to the same GitHub release.
 Keep binaries and source tarballs out of Git history.
-Use an exact versioned GitHub release-asset URL for the website's download anchors, so clicking Get Converty starts the DMG download directly.
+The landing page links to Stripe Checkout, not the installer.
+Use an exact versioned GitHub release-asset URL in Stripe's post-payment confirmation and customer download emails; see [paid delivery](paid-delivery.md).
 GitHub serves release assets as attachments; the download does not depend on client-side JavaScript or an intermediate release page.
-Publish and verify the actual asset before deploying website links to it.
+Publish and verify the actual asset before updating customer download links.
 
 ## Homebrew cask status
 

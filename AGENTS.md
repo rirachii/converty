@@ -8,8 +8,9 @@ The native app's marketing site lives in `site/`; read `site/PRODUCT.md`, `site/
 Build it separately with `npm ci --prefix site` and `npm run build --prefix site`.
 Public hosting uses the Vercel `converty` project with Root Directory set to `site`.
 Run Vercel CLI commands from the repository root; `.vercelignore` limits uploads to the landing-page source.
-The website's Get Converty button links directly to the versioned DMG release asset.
-Keep Apple Silicon requirements and unnotarized early-release status in the closing download section and installation FAQ until verified signing and notarization are completed. The hero shows the install command without release-detail text.
+The website's Buy Converty button links to Stripe Checkout; the paid confirmation message contains the versioned DMG download.
+Read `docs/paid-delivery.md` when changing checkout, purchase emails, or customer update delivery.
+Keep Apple Silicon requirements and unnotarized early-release status in the closing download section and installation FAQ until verified signing and notarization are completed.
 
 - Keep `macOS/project.yml` as the XcodeGen source of truth; generated projects and builds are ignored.
 - Use native AppKit/SwiftUI controls and system file integrations. Do not substitute a WebView wrapper.
