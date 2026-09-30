@@ -93,7 +93,7 @@ The MAS edition offers the same formats and tools as the DMG; no advertised form
 ## Sandbox verification
 
 September 30, 2026, macOS 27.0, Apple Silicon.
-The test bundle was compiled from this branch with `swiftc`, because `xcodebuild` was unavailable (see "Blocked").
+The first test bundle was compiled from this branch with `swiftc`, because `xcodebuild` was temporarily unavailable; the Xcode product was checked later (see the checklist).
 It used the test bundle ID `com.myko.converty.mastest`, so its container was separate from the installed app, and was signed with `Signing/Converty-MAS.entitlements` and `Signing/FFmpeg-MAS.entitlements`.
 `codesign --verify --deep --strict` passed, and `codesign -d --entitlements -` showed the expected entitlements.
 The app ran in its container, `~/Library/Containers/com.myko.converty.mastest`.
