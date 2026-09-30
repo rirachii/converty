@@ -21,16 +21,13 @@ Status as of September 30, 2026.
 - [x] Info.plist: `LSApplicationCategoryType` = `public.app-category.utilities`, `ITSAppUsesNonExemptEncryption` = `false`, `LSMinimumSystemVersion` = 14.0.
 - [x] Privacy manifest `Resources/PrivacyInfo.xcprivacy`, matched against the symbols the app and engine import.
 - [x] Sandboxed end-to-end test (see "Sandbox verification").
+- [x] Xcode build: after an Xcode stall cleared, `build-mas.sh` built `Converty-MAS` (arm64 app and helper), passed `codesign --verify --deep --strict`, and verified the entitlements.
+  A copy of that product, re-signed ad-hoc under a test bundle ID, converted a 720p MP4 to H.264/AAC MOV in the sandbox after the folder prompt; the original was unchanged and no job folders remained.
 - [x] `macOS/Scripts/build-mas.sh`: stages the LGPL engine, builds, signs, verifies entitlements, packages a signed `.pkg`, and optionally validates it; never uploads.
 - [x] The DMG packager refuses the LGPL engine, and `build-mas.sh` refuses the GPL engine.
 
 ### Blocked
 
-- [ ] **Build through Xcode.**
-  On September 30, every `xcodebuild` invocation on the build Mac, including `-showBuildSettings` and another project's build, stalled before compiling, and the build service never started.
-  Xcode 27 and Xcode-beta services were both running.
-  Restart Xcode (or the Mac), then run `CONVERTY_MAS_ENGINE_DIR=<engine dir> macOS/Scripts/build-mas.sh` and `macOS/Scripts/build.sh`.
-  Until then, the sandbox test used a bundle compiled from the same sources with `swiftc`, not the Xcode product.
 - [ ] **Evergood Holdings signing.**
   The keychain on the build Mac has only two "Apple Development: Michelle Weng" identities.
   There is no Apple Distribution or 3rd Party Mac Developer Installer (Mac Installer Distribution) identity for any team, and the Evergood Holdings team ID has not been confirmed.
@@ -111,7 +108,7 @@ Files outside the container were opened through Launch Services, then converted 
 - In a new folder, choosing Cancel in the panel saved nothing and re-enabled Convert.
 - Every original's SHA-1 was unchanged, and the container's `tmp` had no `Converty-*` job folders left.
 
-Not yet verified in the sandbox: the Shift-drag format wheel (needs a physical Finder drag), Finder Services, WebM/VP9, and the Xcode-built product.
+Not yet verified in the sandbox: the Shift-drag format wheel (needs a physical Finder drag), Finder Services, and WebM/VP9.
 The notice banner is not exposed to accessibility, so its text after declining was not read back.
 
 ## App Store Connect drafts
