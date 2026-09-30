@@ -6,6 +6,14 @@ enum MediaEngine {
         let seconds = AVURLAsset(url: url).duration.seconds
         return seconds.isFinite ? seconds : 0
     }
+    /// The direct-download engine encodes H.264 with x264. The LGPL Mac App Store engine has no x264,
+    /// so it uses macOS VideoToolbox, whose quality scale runs from 1 to 100 instead of x264's CRF.
+    static func h264(_ executable: URL, quality: Double, still: Bool = false) throws -> [String] {
+        if try LocalProcess.encoders(executable).contains("libx264") {
+            return ["-c:v", "libx264"] + (still ? ["-tune", "stillimage"] : []) + ["-preset", "fast", "-crf", String(Int(38 - quality * 22))]
+        }
+        return ["-c:v", "h264_videotoolbox", "-q:v", String(Int(20 + quality * 55))]
+    }
     static func convert(_ input: URL, options: ConversionOptions, to output: URL, control: JobControl, progress: @escaping @Sendable (Double) -> Void) throws {
         guard let executable = LocalProcess.ffmpeg else { throw ConvertyError.message("The media engine is missing. Rebuild Converty with FFmpeg bundled.") }
         let kind = FileKind.identify(input), format = output.pathExtension, duration = duration(input)
@@ -17,7 +25,7 @@ enum MediaEngine {
             let png = output.deletingLastPathComponent().appendingPathComponent("cover-\(UUID().uuidString).png")
             defer { try? FileManager.default.removeItem(at: png) }
             try ImageEngine.encode(ImageEngine.decode(cover), to: png, quality: 1, control: control)
-            try LocalProcess.run(executable, args: ["-nostdin", "-v", "error", "-progress", "pipe:1", "-loop", "1", "-i", png.path, "-i", input.path, "-c:v", "libx264", "-tune", "stillimage", "-preset", "fast", "-vf", "scale=trunc(iw/2)*2:trunc(ih/2)*2", "-c:a", "aac", "-pix_fmt", "yuv420p", "-shortest", "-movflags", "+faststart", output.path], control: control, progress: progress, duration: duration)
+            try LocalProcess.run(executable, args: ["-nostdin", "-v", "error", "-progress", "pipe:1", "-loop", "1", "-i", png.path, "-i", input.path] + h264(executable, quality: 0.68, still: true) + ["-vf", "scale=trunc(iw/2)*2:trunc(ih/2)*2", "-c:a", "aac", "-pix_fmt", "yuv420p", "-shortest", "-movflags", "+faststart", output.path], control: control, progress: progress, duration: duration)
             return
         }
         if options.tool == .trim || options.tool == .snapshot {
@@ -60,7 +68,7 @@ enum MediaEngine {
         if !af.isEmpty { args += ["-af", af.joined(separator: ",")] }
         if kind == .video && !audioOnly && format != "gif" {
             if format == "webm" { args += ["-c:v", "libvpx-vp9", "-b:v", "0", "-crf", "32", "-c:a", "libopus"] }
-            else { args += ["-c:v", "libx264", "-preset", "fast", "-crf", String(Int(38 - options.quality * 22)), "-pix_fmt", "yuv420p", "-c:a", "aac"] }
+            else { args += try h264(executable, quality: options.quality) + ["-pix_fmt", "yuv420p", "-c:a", "aac"] }
             if ["mp4", "mov"].contains(format) { args += ["-movflags", "+faststart"] }
         }
         if audioOnly {
@@ -85,7 +93,7 @@ enum MediaEngine {
             let hasAudio = !AVURLAsset(url: input).tracks(withMediaType: .audio).isEmpty
             var args = ["-nostdin", "-v", "error", "-i", input.path]
             if !hasAudio { args += ["-f", "lavfi", "-i", "anullsrc=r=48000:cl=stereo"] }
-            args += ["-vf", "scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1", "-r", "30", "-c:v", "libx264", "-preset", "fast", "-crf", "23", "-c:a", "aac", "-ar", "48000", "-ac", "2", "-shortest", output.path]
+            args += try ["-vf", "scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1", "-r", "30"] + h264(executable, quality: 0.68) + ["-pix_fmt", "yuv420p", "-c:a", "aac", "-ar", "48000", "-ac", "2", "-shortest", output.path]
             try LocalProcess.run(executable, args: args, control: control)
             list += "file 'segment-\(index).mp4'\n"; progress(Double(index + 1) / Double(inputs.count + 1))
         }

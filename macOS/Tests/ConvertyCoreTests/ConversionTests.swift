@@ -177,6 +177,22 @@ final class ConversionTests: XCTestCase {
         let frame = try run([video], tool: .snapshot) { $0.start = 0.2 }
         XCTAssertGreaterThan(try ImageEngine.decode(frame).width, 0)
     }
+    func testEveryAdvertisedVideoFormat() throws {
+        let video = fixtures.appendingPathComponent("short.mov")
+        for format in FileKind.video.formats(for: video) {
+            let result = try run([video], format: format)
+            XCTAssertGreaterThan((try probe(result)["streams"] as? [[String: Any]])?.count ?? 0, 0, format)
+        }
+    }
+    func testEngineEncodersSelectLicensedH264Encoder() throws {
+        let engine = try XCTUnwrap(LocalProcess.ffmpeg), encoders = try LocalProcess.encoders(engine)
+        XCTAssertTrue(encoders.isSuperset(of: ["aac", "flac", "gif", "libvpx-vp9", "libmp3lame"]))
+        XCTAssertFalse(encoders.contains { $0.contains("=") || $0.hasPrefix("-") })
+        // The GPL download engine uses x264; the LGPL App Store engine must fall back to VideoToolbox.
+        let encoder = try MediaEngine.h264(engine, quality: 0.82)[1]
+        XCTAssertEqual(encoder, encoders.contains("libx264") ? "libx264" : "h264_videotoolbox")
+        XCTAssertTrue(encoders.contains(encoder))
+    }
     func testJoinAndSplitVideo() throws {
         let video = fixtures.appendingPathComponent("short.mov")
         let joined = try run([video, video], tool: .joinVideo, format: "mp4")

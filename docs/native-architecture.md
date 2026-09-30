@@ -60,12 +60,23 @@ Image allocations are bounded to 80 million pixels, 32,768 on a side. Text input
 
 The app is intended for user-chosen files and uses system decoders plus the bundled engine. No network conversion or telemetry path exists. It is not a sandboxed arbitrary-file analysis service.
 
+## Mac App Store edition
+
+`Converty-MAS` compiles the same sources with the App Sandbox and hardened runtime.
+`LocalProcess.ffmpeg` prefers a bundled engine, first `Contents/Helpers/ffmpeg` and then `Resources/bin/ffmpeg`; a sandboxed process never falls back to development locations.
+The helper is signed with only the `app-sandbox` and `inherit` entitlements, so it runs inside the app's sandbox and can read the files the app was granted.
+It writes only into the job's temporary directory in the app container; the app copies results to the destination.
+`MediaEngine.h264` reads the engine's encoder list once and uses x264 when present, otherwise VideoToolbox.
+`FolderAccess` keeps security-scoped bookmarks for output folders the user allowed, and restores them at launch.
+Before a job starts, the workspace and floating editor ask it for write access to each destination folder; outside the sandbox this always succeeds without a prompt.
+
 ## Build source of truth
 
 `macOS/project.yml` defines the app target; `Package.swift` defines the core package and tests.
 The tracked `Artwork/AppIcon.icon` document and generated PNG artwork are the icon source of truth.
 Xcode 26 compiles them into `Assets.car` and a legacy `AppIcon.icns`; generated projects, compiled icons, build outputs, and supplied media binaries are ignored.
 `Scripts/build.sh` copies a self-contained engine, builds matching CPU architectures, and applies ad-hoc signatures.
+`Scripts/build-mas.sh` builds the `Converty-MAS` target with the LGPL engine and signs it for local sandbox testing or App Store distribution.
 `NativeStyle.swift` centralizes the blue accent, appearance selection, glass wrappers, and primary button style.
 The `native.appearance` preference controls `NSApp.appearance`, including floating AppKit panels; the wheel invalidates its drawing when its effective appearance changes.
 See `macOS/README.md` for the separate public-release gates.

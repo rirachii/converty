@@ -38,6 +38,10 @@ import ConvertyCore
         self.control = control; running = true; finished = false; error = nil; progress = 0; results = []; onStart?()
         let groups = options.tool.isGroup ? [inputs] : inputs.map { [$0] }
         Task {
+            guard await FolderAccess.requestWrite(in: groups.map { destination ?? $0[0].deletingLastPathComponent() }) else {
+                error = "Converty needs your permission to save in that folder. Nothing was changed. Allow access, or choose another folder."
+                running = false; self.control = nil; onFinish?(); return
+            }
             do {
                 for (index, group) in groups.enumerated() {
                     let request = ConversionRequest(inputs: group, destination: destination, options: options)
@@ -55,7 +59,7 @@ import ConvertyCore
     func cancel() { control?.cancel() }
     func chooseDestination() {
         let picker = NSOpenPanel(); picker.canChooseFiles = false; picker.canChooseDirectories = true; picker.canCreateDirectories = true; picker.directoryURL = destination ?? inputs[0].deletingLastPathComponent(); picker.prompt = "Save here"
-        picker.begin { if $0 == .OK, let url = picker.url { self.destination = url } }
+        picker.begin { if $0 == .OK, let url = picker.url { self.destination = url; FolderAccess.remember(url) } }
     }
 }
 

@@ -13,7 +13,9 @@
   <key>LSMinimumSystemVersion</key><string>14.0</string>
   <key>NSHighResolutionCapable</key><true/>
   <key>NSPrincipalClass</key><string>NSApplication</string>
-  <key>NSHumanReadableCopyright</key><string>Converty contributors. GPL-3.0-or-later.</string>
+  <key>NSHumanReadableCopyright</key><string>$(CONVERTY_COPYRIGHT)</string>
+  <key>LSApplicationCategoryType</key><string>public.app-category.utilities</string>
+  <key>ITSAppUsesNonExemptEncryption</key><false/>
   <key>CFBundleDocumentTypes</key><array><dict>
     <key>CFBundleTypeName</key><string>Files to convert</string>
     <key>CFBundleTypeRole</key><string>Editor</string>

@@ -121,6 +121,7 @@ struct WorkspaceFile: Identifiable {
         panel.directoryURL = destination ?? selected.first?.url.deletingLastPathComponent(); panel.prompt = "Use folder"; panel.title = "Save converted files to"
         panel.begin { response in if response == .OK, let url = panel.url {
             self.destination = url
+            FolderAccess.remember(url)
             UserDefaults.standard.set(url.path, forKey: "native.outputFolder")
             UserDefaults.standard.set(true, forKey: "native.useCustomOutputFolder")
         } }
@@ -159,6 +160,11 @@ struct WorkspaceFile: Identifiable {
         let destination = self.destination, control = JobControl()
         self.control = control; notice = nil; isRunning = true; activeProgress = 0; section = .all
         Task {
+            guard await FolderAccess.requestWrite(in: groups.map { destination ?? $0[0].url.deletingLastPathComponent() }) else {
+                isRunning = false; self.control = nil
+                notice = "Converty needs your permission to save in that folder. Nothing was changed. Allow access, or choose another folder with Save to."
+                return
+            }
             var completed = 0
             for group in groups {
                 do { try control.check() } catch { break }

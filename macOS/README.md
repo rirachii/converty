@@ -12,7 +12,8 @@ See the [release runbook](../docs/macos-release.md) for packaging and correspond
 - A self-contained FFmpeg executable, selected with `CONVERTY_FFMPEG`. The default lookup for the build script is `~/.local/bin/ffmpeg`.
 - A compatible `ffprobe` on PATH, or `CONVERTY_FFPROBE`, for tests.
 
-The FFmpeg build must include the encoders used by Converty, including `libx264`, `libvpx-vp9`, `libopus`, `libmp3lame`, `libvorbis`, and `libwebp`.
+The FFmpeg build must include the encoders used by Converty: `libvpx-vp9`, `libopus`, `libmp3lame`, `libvorbis`, `libwebp`, and an H.264 encoder.
+The direct-download engine encodes H.264 with `libx264`; an engine without it uses `h264_videotoolbox`, as the Mac App Store engine does.
 For core tests with Homebrew, use [ffmpeg-full](https://formulae.brew.sh/formula/ffmpeg-full) and the explicit executable paths in [CONTRIBUTING.md](../CONTRIBUTING.md).
 The regular `ffmpeg` formula omits Vorbis and WebP support.
 
@@ -38,7 +39,15 @@ Open `Artwork/AppIcon.icon` to change the icon, then rebuild the app; do not edi
 The interface uses native Liquid Glass on macOS 26, with standard system materials and controls on macOS 14 and 15.
 Settings offers System, Light, and Dark appearance without changing the Mac's global appearance.
 
-No web server, WebView, Node process, or WebAssembly engine is used by the Mac app. The app is not sandboxed, and reads only files selected by the user or required local resources. It makes no application network requests.
+No web server, WebView, Node process, or WebAssembly engine is used by the Mac app. The direct-download app is not sandboxed, and reads only files selected by the user or required local resources. It makes no application network requests.
+
+## Mac App Store edition
+
+The `Converty-MAS` target builds a sandboxed edition from the same source for the Mac App Store.
+It bundles an LGPL-only engine, built with `Scripts/build-engine.py --variant lgpl`, as the sandboxed helper `Contents/Helpers/ffmpeg`.
+H.264 is encoded with VideoToolbox instead of x264; every advertised format and tool remains available.
+Saving into a folder the user has not granted asks for access with a standard folder panel, and the grant is remembered as a security-scoped bookmark.
+Build it with `Scripts/build-mas.sh`; see [Mac App Store submission](../docs/mas-submission.md) and [licensing questions](../docs/mas-licensing.md).
 
 ## Trimming video and audio
 

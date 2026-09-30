@@ -34,6 +34,8 @@ def main():
     commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=repo, text=True).strip()
     records = json.loads((native / 'Engine/sources.json').read_text())
     provenance = json.loads((engine_root / 'provenance.json').read_text())
+    if provenance.get('variant', 'full') != 'full':
+        raise SystemExit('The direct-download DMG uses the full engine variant; the LGPL variant is for the Mac App Store build.')
     if records != provenance['sources']:
         raise SystemExit('The built engine does not match the release source manifest.')
     if digest(native / 'Scripts/build-engine.py') != provenance['recipe_sha256']:

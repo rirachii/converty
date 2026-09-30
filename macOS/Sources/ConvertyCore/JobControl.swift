@@ -20,14 +20,33 @@ public final class JobControl: @unchecked Sendable {
 }
 
 public enum LocalProcess {
+    public static var isSandboxed: Bool { ProcessInfo.processInfo.environment["APP_SANDBOX_CONTAINER_ID"] != nil }
+    /// A bundled engine always wins: the Mac App Store build must run only its signed LGPL helper.
+    /// The other locations serve tests and local development of the unsandboxed app.
     public static var ffmpeg: URL? {
-        let paths = [
+        let bundled: [String?] = [
+            Bundle.main.bundleURL.appendingPathComponent("Contents/Helpers/ffmpeg").path,
+            Bundle.main.url(forResource: "ffmpeg", withExtension: nil, subdirectory: "bin")?.path
+        ]
+        let development: [String?] = isSandboxed ? [] : [
             ProcessInfo.processInfo.environment["CONVERTY_FFMPEG"],
-            Bundle.main.url(forResource: "ffmpeg", withExtension: nil, subdirectory: "bin")?.path,
             "/opt/homebrew/bin/ffmpeg", "/usr/local/bin/ffmpeg",
             FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent(".local/bin/ffmpeg").path
-        ].compactMap { $0 }
-        return paths.first(where: { FileManager.default.isExecutableFile(atPath: $0) }).map { URL(fileURLWithPath: $0) }
+        ]
+        return (bundled + development).compactMap { $0 }.first(where: { FileManager.default.isExecutableFile(atPath: $0) }).map { URL(fileURLWithPath: $0) }
+    }
+    private static let encoderLock = NSLock()
+    private static var encoderCache: [URL: Set<String>] = [:]
+    /// Encoder names compiled into an engine, read once per executable from `ffmpeg -encoders`.
+    static func encoders(_ executable: URL) throws -> Set<String> {
+        encoderLock.lock(); defer { encoderLock.unlock() }
+        if let cached = encoderCache[executable] { return cached }
+        let listing = try run(executable, args: ["-hide_banner", "-encoders"], control: JobControl())
+        // A legend precedes a "------" separator; each following line is "<flags> <name> <description>".
+        let rows = listing.split(separator: "\n").drop { $0.trimmingCharacters(in: .whitespaces) != "------" }.dropFirst()
+        let names = Set(rows.compactMap { line in line.split(separator: " ").dropFirst().first.map(String.init) })
+        encoderCache[executable] = names
+        return names
     }
     @discardableResult
     static func run(_ executable: URL, args: [String], directory: URL? = nil, control: JobControl, progress: (@Sendable (Double) -> Void)? = nil, duration: Double = 0) throws -> String {

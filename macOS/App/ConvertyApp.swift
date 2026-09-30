@@ -46,6 +46,7 @@ import ConvertyCore
     var handler: EventHandlerRef?
     func applicationDidFinishLaunching(_ notification: Notification) {
         Self.instance = self
+        FolderAccess.restore()
         AppAppearance(rawValue: UserDefaults.standard.string(forKey: "native.appearance") ?? "system")?.apply()
         dragWheel.start()
         Workspace.shared.showWindow = { [weak self] in self?.showMainWindow() }

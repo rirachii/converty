@@ -30,6 +30,9 @@ swift test --package-path macOS
 ```
 
 The recipe verifies every archive, compiles static libraries, checks the resulting architectures and dynamic dependencies, and records licenses and build provenance.
+The default `--variant full` is the DMG engine.
+`--variant lgpl` builds the Mac App Store engine without GPL components, x264, or network protocols; the DMG packager rejects it.
+See [Mac App Store submission](mas-submission.md).
 It caches successful builds keyed by source and recipe checksums.
 Use a fresh work directory to force a clean rebuild.
 The compiler, SDK, and generated engine hash are recorded in `provenance.json`; bit-for-bit reproducibility across different Xcode versions is not promised.

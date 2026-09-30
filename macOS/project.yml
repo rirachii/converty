@@ -13,9 +13,13 @@ settings:
     CODE_SIGN_IDENTITY: '-'
     CODE_SIGN_STYLE: Manual
     DEVELOPMENT_TEAM: ''
-    ENABLE_APP_SANDBOX: NO
-    ENABLE_HARDENED_RUNTIME: NO
+    PRODUCT_BUNDLE_IDENTIFIER: com.myko.converty
+    PRODUCT_NAME: Converty
+    INFOPLIST_FILE: Info.plist
+    GENERATE_INFOPLIST_FILE: NO
+    ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
 targets:
+  # Direct download: GPL engine, not sandboxed. Scripts/build.sh signs it.
   Converty:
     type: application
     platform: macOS
@@ -35,15 +39,56 @@ targets:
         product: ConvertyCore
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.myko.converty
-        PRODUCT_NAME: Converty
-        INFOPLIST_FILE: Info.plist
-        GENERATE_INFOPLIST_FILE: NO
-        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ENABLE_APP_SANDBOX: NO
+        ENABLE_HARDENED_RUNTIME: NO
+        CONVERTY_COPYRIGHT: Converty contributors. GPL-3.0-or-later.
+  # Mac App Store: LGPL engine as a sandboxed helper. Scripts/build-mas.sh signs and packages it.
+  Converty-MAS:
+    type: application
+    platform: macOS
+    sources:
+      - path: App
+      - path: Resources
+        excludes: [bin, AppIcon.icns]
+        buildPhase: resources
+      - path: Artwork/AppIcon.icon
+        type: file
+        buildPhase: resources
+      - path: Helpers/ffmpeg
+        optional: true
+        buildPhase:
+          copyFiles:
+            destination: wrapper
+            subpath: Contents/Helpers
+    dependencies:
+      - package: ConvertyNative
+        product: ConvertyCore
+    postBuildScripts:
+      - name: Sign media engine helper
+        basedOnDependencyAnalysis: false
+        script: |
+          helper="$TARGET_BUILD_DIR/$CONTENTS_FOLDER_PATH/Helpers/ffmpeg"
+          if [ -f "$helper" ]; then
+            codesign --force --sign "${EXPANDED_CODE_SIGN_IDENTITY:--}" --options runtime --entitlements "$SRCROOT/Signing/FFmpeg-MAS.entitlements" "$helper"
+          fi
+    settings:
+      base:
+        ARCHS: arm64
+        CODE_SIGN_ENTITLEMENTS: Signing/Converty-MAS.entitlements
+        ENABLE_APP_SANDBOX: YES
+        ENABLE_HARDENED_RUNTIME: YES
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+        CONVERTY_COPYRIGHT: Converty contributors.
 schemes:
   Converty:
     build:
       targets:
         Converty: all
+    run:
+      config: Debug
+  Converty-MAS:
+    build:
+      targets:
+        Converty-MAS: all
     run:
       config: Debug
